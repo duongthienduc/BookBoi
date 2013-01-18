@@ -25,6 +25,8 @@
     <!-- main_menu.xml -->
     <string name="main_menu_xml_button_buy_str">Buy</string>    
     <string name="main_menu_xml_button_sell_str">Sell</string>    
+    <string name="main_menu_xml_button_search_str">Search</string>    
+ 
     
     <string name="main_menu_xml_button_leader_board_str">Leaderboards</string>
     <string name="main_menu_xml_button_friend_str">Friends</string>

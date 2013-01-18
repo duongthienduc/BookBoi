@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/aluminum6"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/aluminum6"
+        android:orientation="vertical" >
+
+        <Button 
+            android:id="@+id/activity_test_xml_button_login"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="LogIn"
+            />
+        
+        <Button 
+            android:id="@+id/activity_test_xml_button_main_menu"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="MainMenu"
+            />
+        
+         <Button 
+            android:id="@+id/activity_test_xml_button_submit_book"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="SubmitBook"
+            />
+    </LinearLayout>
+
+</ScrollView>

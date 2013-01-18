@@ -31,7 +31,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
-public class MainActivity extends Activity {
+public class LogInActivity extends Activity {
 	private final String DEBUG_TAG = "MainActivity";
 	private final String LOGIN_URL = "http://bookboi.com/chan/login.php";
 
@@ -58,7 +58,6 @@ public class MainActivity extends Activity {
 		if (isNetworkAvailableAndConnected()) {
 			findViewById(R.id.login_xml_button_login).setOnClickListener(
 				new OnClickListener() {
-					@Override
 					public void onClick(View v) {
 						onPerformLogin();
 					}
@@ -86,10 +85,9 @@ public class MainActivity extends Activity {
 
 		public UserLogInTask(List<NameValuePair> credential) {
 			this.credential = credential;
-			progressDialog = new ProgressDialog(MainActivity.this);
+			progressDialog = new ProgressDialog(LogInActivity.this);
 			progressDialog.setCancelable(true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
-				@Override
 				public void onCancel(DialogInterface dialog) {
 					cancel(true);
 				}
@@ -119,8 +117,8 @@ public class MainActivity extends Activity {
 					try {
 						int id = result.getInt("id");
 						if (id != 0) {
-							MainActivity.this.startActivity(new Intent(MainActivity.this.getApplicationContext(), MainMenuActivity.class));
-							MainActivity.this.finish();
+							LogInActivity.this.startActivity(new Intent(LogInActivity.this.getApplicationContext(), MainMenuActivity.class));
+							LogInActivity.this.finish();
 						}
 					} catch (JSONException e) {
 						Log.v(DEBUG_TAG, "Exception has occured while parsing JSON" + e);
