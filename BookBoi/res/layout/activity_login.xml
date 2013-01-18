@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LoginBackground" >
+
+    <RelativeLayout style="@style/LoginSignUpContainer" >
+
+        <RelativeLayout
+            android:id="@+id/login_xml_signup_content"
+            style="@style/LoginSignUpContent" >
+
+            <TextView
+                android:id="@+id/login_xml_tagline"
+                style="@style/LoginTagLine" />
+
+            <Button
+                android:id="@+id/login_xml_button_signup"
+                style="@style/LoginScreenButton.SignUp" />
+        </RelativeLayout>
+
+        <View style="@style/LoginShadowBorderTop" />
+
+        <View style="@style/LoginShadowBorderBottom" />
+    </RelativeLayout>
+
+    <LinearLayout style="@style/LoginInputFields" >
+
+        <EditText
+            android:id="@+id/login_xml_edittext_email_id"
+            style="@style/LoginInput.Email" >
+
+            <!-- <requestFocus /> -->
+        </EditText>
+
+        <EditText
+            android:id="@+id/login_xml_edittext_password_id"
+            style="@style/LoginInput.Password" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_xml_button_login"
+        style="@style/LoginScreenButton.Login" />
+
+</LinearLayout>

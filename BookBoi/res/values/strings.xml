@@ -1,0 +1,105 @@
+<resources>
+
+    <string name="app_name">BookBoi</string>
+	 <!-- login.xml -->
+    <string name="login_xml_textview_email_str">Email</string>
+    <string name="login_xml_textview_password_str">Password</string>
+    <string name="login_xml_checkbox_remember_password_str">Remember password</string>
+    <string name="login_xml_button_login_str">Log in</string>
+    <string name="login_xml_button_signup_str">Sign up</string> 
+    <string name="login_xml_textview_version_str">V1.0</string>
+    <string name="login_xml_hyperlink_signup_str"><a href="http://107.22.209.62/web_app/register.php">Sign Up</a></string>
+        
+    <!-- signup.xml - Tu Tran 11/9/2011-->
+    <string name="signup_xml_textview_email_str">Email</string>
+    <string name="signup_xml_textview_password_str">Password</string>
+    <string name="signup_xml_textview_confirm_password_str">Confirm password</string>
+    <string name="signup_xml_button_signup_str">Sign up</string>
+    <string name="signup_xml_checkbox_visible_characters_str">Show password</string>
+    <string name="signup_xml_button_exit_str">Exit</string>        
+    <!-- mapview.xml -->
+    <string name="mapview_xml_button_view_str">View</string>
+    <string name="mapview_xml_button_locate_str">Locate</string>
+    <string name="mapview_xml_button_place_str">Places</string>
+    
+    <!-- main_menu.xml -->
+    <string name="main_menu_xml_button_buy_str">Buy</string>    
+    <string name="main_menu_xml_button_sell_str">Sell</string>    
+    
+    <string name="main_menu_xml_button_leader_board_str">Leaderboards</string>
+    <string name="main_menu_xml_button_friend_str">Friends</string>
+    <string name="main_menu_xml_button_challenge_str">Challenges</string>
+    <string name="main_menu_xml_button_spot_str">Nearby</string>    
+    <string name="main_menu_xml_slider_notification_str">Notifications</string>
+    
+    <!-- options_menu.xml -->
+    <string name="options_menu_xml_item_logout_str">Logout</string>
+    <string name="options_menu_xml_item_setting_str">Settings</string>    
+        
+    <!-- settings.xml -->
+    <string name="settings_xml_checkbox_str">Share your Location with Friends</string>
+    <string-array name="setting_xml_spinner_defaultview_ary">
+        <item>Map View</item>
+        <item>Challenges View</item>
+        <item>Main Menu View</item>
+    </string-array>   
+    
+    <!-- place.xml -->
+    <string name="place_xml_textview_find_str">Find</string>
+    <string name="place_xml_button_refresh_str">Refresh</string>
+    <string name="place_xml_textview_nearby_str">Nearby Places</string>
+    
+    <!-- challenge.xml -->
+    <string name="challenge_xml_button_sort_by">Sort by</string>
+    
+    <!-- friend_list.xml -->
+    <string-array name="friends_array">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+        <item>Eleven</item>
+        <item>Twelve</item>
+        <item>Thirteen</item>
+        <item>Fourteen</item>
+        <item>Fifteen</item>
+        <item>Sixteen</item>
+    </string-array>
+    <string name="place_action_item_xml_string_pts">pts</string>
+    <string name="leaderboard_xml_header_rank">RANK</string>
+    <string name="leaderboard_xml_header_username">PLAYER</string>
+    <string name="leaderboard_xml_header_CD">CD</string>
+    <string name="leaderboard_xml_header_PV">PV</string>
+    <string name="leaderboard_xml_header_points">PTS</string>
+    <string name="leaderboard_xml_refresh">Refresh</string>
+    
+     <!-- question/answer.xml -->
+    <string name="question_answer_xml_edittext_answer">Answer</string>
+    <string name="spots_missions_info_button">More</string>
+    <string name="friend_search_button">Search</string>
+    <string name="main_menu_btn_me">Me</string>
+    <string name="main_menu_btn_map">Map</string>
+    <string name="main_menu_btn_friends">Friends</string>
+    <string name="main_menu_btn_quests">Quests</string>
+    <string name="main_menu_btn_spots">Spots</string>
+    <string name="main_menu_btn_ping">Ping</string>
+    <string name="main_menu_btn_spot_it">Spot It</string>
+    <string name="main_menu_btn_inventory">Inventory</string>
+    <string name="main_menu_btn_inbox">Inbox</string>
+    <string name="title_bar_default_title">Gopher</string>
+    <string name="login_xml_textview_tagline_str">Welcome to Gopher. Go play, explore, and share. It\'s your world right in your phone.</string>
+    <string name="login_xml_ask_signup_str">New to Gopher?</string>
+    
+    <string name="google_api_key">0kqsfxjLdh6hBSw6P1O21ednBAHof_q1GuRuffg</string>
+    <string name="profile_xml_missions_done">Missions</string>
+    <string name="profile_xml_total_points">Points</string>
+    <string name="profile_xml_places_visited">Places</string>
+    <string name="profile_xml_edit_profile_btn">Edit profile</string>
+    <string name="main_menu_btn_friend_request">Friend Requests</string>
+</resources>

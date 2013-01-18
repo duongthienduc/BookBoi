@@ -1,0 +1,1458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title Bar Helper -->
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="CustomTheme" parent="android:Theme">
+        <item name="android:windowTitleSize">45dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+    </style>
+    <!-- End Title Bar Helper -->
+
+
+    <!-- Title Bars (Basic) -->
+    <style name="TitleBarBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/rectangle_gradient_al6_al5d5</item>
+    </style>
+
+    <style name="TitleBarNav">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TitleBarHomeContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@null</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="TitleBarHomeBeacon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/ic_home_beacon</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="TitleBarLogo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/launcher</item>
+<!--         <item name="android:scaleType">fitXY</item> -->
+    </style>
+
+    <style name="TitleBarTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@null</item>
+        <item name="android:text">Title Bar</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TitleBarActions">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">right|center_vertical</item>
+    </style>
+
+    <style name="VerticalSpacer.TitleBar">
+        <item name="android:layout_width">2px</item>
+        <item name="android:background">@drawable/vertical_divider</item>
+    </style>
+
+    <style name="TitleBarButton">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/ic_launcher</item>
+        <item name="android:clickable">true</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <!-- End Title Bars -->
+
+
+    <!-- TabWidget -->
+    <style name="TabBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/tab_selector</item>
+    </style>
+
+    <style name="TabText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <!-- End TabWidget -->
+
+
+    <!-- Login -->
+    <style name="LoginBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingTop">40dp</item>
+        <item name="android:background">@color/vimeo_grey</item>
+    </style>
+
+    <style name="LoginSignUpContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="LoginSignUpContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rectangle_gradient_al6_al5d5</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">28dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
+
+    <style name="LoginTagLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">Welcome To CSUN Book Store</item>
+        <item name="android:textColor">@color/aluminum1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">20dp</item>
+    </style>
+
+    <style name="LoginScreenButton">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@android:color/black</item>
+        <item name="android:shadowRadius">1.2</item>
+        <item name="android:shadowDx">-0.5</item>
+        <item name="android:shadowDy">-0.6</item>
+    </style>
+
+    <style name="LoginScreenButton.SignUp">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+        <item name="android:layout_alignBottom">@id/login_xml_tagline</item>  -->
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:background">@drawable/button_pink</item>
+        <item name="android:text">@string/login_xml_button_signup_str</item>
+    </style>
+
+    <style name="LoginShadowBorderTop">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">6dp</item>
+        <item name="android:layout_alignTop">@id/login_xml_signup_content</item> 
+        <item name="android:background">@drawable/shadow_border_top</item>
+    </style>
+
+    <style name="LoginShadowBorderBottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">7dp</item>
+   		<item name="android:layout_alignBottom">@id/login_xml_signup_content</item> 
+        <item name="android:background">@drawable/shadow_border_bottom</item>
+    </style>
+
+    <style name="LoginInputFields">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginBottom">25dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="LoginInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/aluminum6</item>
+        <item name="android:textColorHint">#ffacb6c2</item>
+    </style>
+
+    <style name="LoginInput.Email">
+        <item name="android:background">@drawable/rectangle_rounded_tops</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">@string/login_xml_textview_email_str</item>
+    </style>
+
+    <style name="LoginInput.Password">
+        <item name="android:background">@drawable/rectangle_rounded_bottoms</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:hint">@string/login_xml_textview_password_str</item>
+    </style>
+
+    <style name="LoginScreenButton.Login">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:text">@string/login_xml_button_login_str</item>
+    </style>
+    <!-- End Login -->
+
+
+    <!-- Sign Up -->
+    <style name="SignupBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">40dp</item>
+        <item name="android:background">@color/vimeo_grey</item>
+    </style>
+
+    <style name="SignupFormContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">25dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="SignupInputLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <style name="SignupInputField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="SignupInputLabel.Email">
+        <item name="android:text">@string/signup_xml_textview_email_str</item>
+    </style>
+
+    <style name="SignupInputEmail" parent="LoginInput.Email">
+        <item name="android:background">@drawable/rectangle_rounded_tops_bottoms</item>
+        <item name="android:hint">@null</item>
+    </style>
+
+    <style name="SignupInputLabel.Password">
+        <item name="android:text">@string/signup_xml_textview_password_str</item>
+    </style>
+
+    <style name="SignupInputPassword" parent="LoginInput.Password">
+        <item name="android:background">@drawable/rectangle_rounded_tops_bottoms</item>
+        <item name="android:hint">@null</item>
+    </style>
+
+    <style name="SignupInputLabel.ConfirmPassword">
+        <item name="android:text">@string/signup_xml_textview_confirm_password_str</item>
+    </style>
+
+    <style name="SignupInputConfirmPassword" parent="LoginInput.Password">
+        <item name="android:background">@drawable/rectangle_rounded_tops_bottoms</item>
+        <item name="android:hint">@null</item>
+    </style>
+
+    <style name="SignupShowPassword">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">-20dp</item>
+        <item name="android:button">@drawable/checkbox</item>
+        <item name="android:text">@string/signup_xml_checkbox_visible_characters_str</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <style name="SignupSubmitButton" parent="LoginScreenButton.Login">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:text">@string/login_xml_button_signup_str</item>
+    </style>
+    <!-- End Sign Up -->
+
+
+    <!-- Main Menu -->
+    <style name="Dashboard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+<!--        <item name="android:layout_above">@id/spacer</item>  --> 
+        <item name="android:background">@android:color/white</item>
+        <!-- <item name="android:background">@drawable/cloudy_sky</item> -->
+    </style>
+
+    <style name="MainMenuButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">6dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="MainMenuButton.Buy">
+        <item name="android:drawableTop">@drawable/ic_main_menu_me</item>
+        <item name="android:text">@string/main_menu_xml_button_buy_str</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.Sell">
+        <item name="android:drawableTop">@drawable/ic_main_menu_map</item>
+        <item name="android:text">@string/main_menu_xml_button_sell_str</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <!-- 
+    <style name="MainMenuButton.Friends">
+        <item name="android:drawableTop">@drawable/ic_main_menu_friends</item>
+        <item name="android:text">@string/main_menu_btn_friends</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.Quests">
+        <item name="android:drawableTop">@drawable/ic_main_menu_quests</item>
+        <item name="android:text">@string/main_menu_btn_quests</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.Spots">
+        <item name="android:drawableTop">@drawable/ic_main_menu_spots</item>
+        <item name="android:text">@string/main_menu_btn_spots</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.Ping">
+        <item name="android:drawableTop">@drawable/ic_main_menu_ping</item>
+        <item name="android:text">@string/main_menu_btn_ping</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.SpotIt">
+        <item name="android:drawableTop">@drawable/ic_main_menu_spot_it</item>
+        <item name="android:text">@string/main_menu_btn_spot_it</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.Inventory">
+        <item name="android:drawableTop">@drawable/ic_main_menu_inventory</item>
+        <item name="android:text">@string/main_menu_btn_inventory</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="MainMenuButton.Inbox">
+        <item name="android:drawableTop">@drawable/ic_main_menu_inbox</item>
+        <item name="android:text">@string/main_menu_btn_inbox</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+    
+    <style name="MainMenuButton.FriendRequest">
+        <item name="android:drawableTop">@drawable/ic_main_menu_friend_request</item>
+        <item name="android:text">@string/main_menu_btn_friend_request</item>
+        <item name="android:onClick">getActivity</item>
+    </style>
+
+    <style name="NotificationHandle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/aluminum4</item>
+    </style>
+    -->
+    <!-- End Main Menu -->
+
+
+    <!-- Me -->
+    <!-- Me: Profile -->
+    <style name="SpotrGeneralBackground.Profile">
+        <item name="android:padding">0dp</item>
+    </style>
+    
+    <style name="ProfileInfoContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/light_grey</item>
+    </style>
+    
+    <style name="ProfileInfoBorder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:background">@drawable/rectangle_gradient_green_bumper</item>
+    </style>
+    
+    <style name="ProfileInfoShadowBorderBottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:background">@drawable/shadow_border_bottom_profile</item>
+    </style>
+    
+    <style name="LinearLayoutShadow.Avatar">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">3dp</item>
+    </style>
+    
+    <style name="ProfileName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">-5dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="ProfileAvatar">
+        <item name="android:layout_width">75dp</item>
+        <item name="android:layout_height">75dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:src">@drawable/user_default</item>
+    </style>
+    
+    <style name="ProfileStatsContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/rectangle_rounded_paren</item>
+    </style>    
+    
+    <style name="ProfileStatsItemContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+    <style name="ProfileStatsItemLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+    
+    <style name="ProfileStatsItemValue" parent="ProfileStatsItemLabel">
+        <item name="android:textColor">@color/aluminum6</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="ProfileStatsItemContainer.Points">
+        <item name="android:layout_marginRight">30dp</item>
+    </style>
+    
+    <style name="ProfileStatsItemLabel.Points">
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:text">@string/profile_xml_total_points</item>
+    </style>
+    
+    <style name="ProfileStatsItemContainer.Missions">
+        <item name="android:layout_marginRight">30dp</item>
+    </style>
+    
+    <style name="ProfileStatsItemLabel.Missions">
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:text">@string/profile_xml_missions_done</item>
+    </style>
+        
+    <style name="ProfileStatsItemLabel.Places">
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:text">@string/profile_xml_places_visited</item>
+    </style>
+    
+    <style name="ProfileActivityLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:text">Activity</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+    
+    <style name="ProfileActivityFeed">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/light_grey</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+    
+    <!-- Profile Edit -->
+    <style name="ProfileEditText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>        
+    </style>
+    
+    <!-- End Me: Profile -->
+    
+    <!-- Me: Leaderboard List -->
+    <style name="RankListing">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
+
+    <!-- Me: Leaderboard Row -->
+    <style name="LeaderboardRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- Me: Leaderboard Header -->
+    <style name="LeaderboardRow.Header">
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">@color/aluminum1</item>
+    </style>
+
+    <!-- Me: Leaderboard Rank -->
+    <style name="LeaderboardRank">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <!-- Me: Leaderboard Username -->
+    <style name="LeaderboardUsername">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">5.5</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <!-- Me: Leaderboard Stat Values -->
+    <style name="LeaderboardStats">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <!-- Me: Leaderboard Points -->
+    <style name="LeaderboardStats.Points">
+        <item name="android:layout_weight">2</item>
+    </style>
+
+    <style name="LeaderboardRank.Header">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LeaderboardUsername.Header">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LeaderboardStats.Header">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LeaderboardStats.Points.Header">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- End Me -->
+
+
+    <!-- Map -->
+    <!-- Style of clickable version defined programatically -->
+    <style name="TitleBarButton.MapLocate">
+        <item name="android:src">@drawable/ic_map_locate_disabled</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <!-- Style of clickable version defined programatically -->
+    <style name="TitleBarButton.MapPlaces">
+        <item name="android:src">@drawable/ic_map_places_disabled</item>
+        <item name="android:clickable">false</item>
+    </style>
+    <!-- End Map -->
+
+
+    <!-- Friends: Friends tab -->
+    <style name="SpotrGeneralBackground.FriendList">
+        <item name="android:padding">0dp</item>
+        <item name="android:background">@color/light_grey</item>
+    </style>
+    
+    <style name="FriendList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:groupIndicator">@drawable/ic_expander</item>
+        <item name="android:divider">@color/vimeo_light_grey</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="android:childDivider">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+    </style>
+
+    <style name="UserItemRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/listview_row_selector_friends</item>
+    </style>
+
+    <style name="UserItemAvatar">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="UserItemName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/listview_text_selector_friends</item>
+    </style>
+
+    <style name="FriendActionRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/vimeo_grey</item>
+    </style>
+
+    <style name="FriendActionsShadowBorderTop">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:background">@drawable/shadow_border_top_friends</item>
+    </style>
+
+    <style name="FriendActionsShadowBorderBottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@drawable/shadow_border_bottom_friends</item>
+    </style>
+
+    <style name="FriendActionsContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="FriendBtnMessage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawableTop">@drawable/ic_friendlist_message</item>
+        <item name="android:text">Send message</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <style name="FriendBtnProfile">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawableTop">@drawable/ic_friendlist_profile</item>
+        <item name="android:text">View profile</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+    <!-- End Friends: Friends tab -->
+
+
+    <!-- Friends: Chatter tab -->
+    <style name="FriendListFeedBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="FriendListFeedActual">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+    
+    <style name="FeedBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@android:color/white</item>        
+    </style>
+
+    <style name="FeedItemTime">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">12sp</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/vimeo_grey</item>
+    </style>
+    
+    <style name="FeedUserAvatar">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="@android:src">@drawable/user_default</item>
+    </style>
+    
+    <style name="FeedItemUsernameMission">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="FeedItemPlaceName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/vimeo_dark_grey</item>
+    </style>
+    
+    <style name="FeedItemMissionDetails">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/vimeo_dark_grey</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    
+    <style name="FeedItemSnappedPicture">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/ic_launcher</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    
+    <style name="FeedItemTreasureContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    
+    <style name="FeedItemTreasureImage">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/ic_launcher</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    
+    <style name="FeedItemTreasureFrom">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">from</item>
+        <item name="android:visibility">gone</item>
+    </style>
+        
+    <style name="FeedButtonsContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/rectangle_rounded_tops_bottoms_blue_compact</item>
+    </style>
+    
+    <style name="FeedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/aluminum6</item>
+        <item name="android:background">@null</item>       
+    </style>
+    
+    <style name="FeedButton.Comment">
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:text">Comment</item>  
+    </style>
+    
+    <style name="FeedButton.Like">
+        <item name="android:text">Like</item> 
+    </style>
+    
+    <style name="FeedBackground.Comments">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@color/light_grey</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    
+    <style name="FeedUsernameComments">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="FeedContentComments">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/vimeo_dark_grey</item>
+    </style>
+    
+    <style name="FeedNumberComments">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/vimeo_grey</item>
+    </style>
+    <!-- End Friends: Chatter tab -->
+
+
+    <!-- Friends: Find tab -->
+    <style name="FriendSearchBarContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="FriendSearchBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="FriendSearchButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:text">@string/friend_search_button</item>
+    </style>
+
+    <style name="LinearLayoutShadow.FriendsFindList">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!-- End Friends: Find tab -->
+
+
+    <!-- Quests -->
+    <style name="SpotrGeneralBackground.QuestList">
+        <item name="android:background">@color/light_grey</item>
+    </style>
+    
+    <style name="QuestList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">7dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+    
+    <style name="LinearLayoutShadow.QuestItemRow">
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="QuestItemRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/listview_row_selector_quests</item>
+    </style>
+    
+    <style name="QuestItemPicture">
+        <item name="android:layout_width">75dp</item>
+        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:src">@drawable/ic_main_menu_quests_pressed</item>
+    </style>
+    
+    <style name="QuestItemName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/listview_text_selector</item>
+        <item name="android:text">TEST</item>
+    </style>
+    
+    <style name="QuestItemDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/listview_text_selector</item>
+        <item name="android:text">TEST</item>
+    </style>
+    <!-- End Quests -->
+    
+
+    <!-- Spots: list of nearby places -->
+    <style name="TitleBarButton.SpotsRefresh">
+        <item name="android:src">@drawable/ic_refresh_disabled</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="SpotrGeneralBackground.Place">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/light_grey</item>
+    </style>
+
+    <style name="SpotsSearchBarLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/place_xml_textview_find_str</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <!-- STYLING FOR NOTHING -->
+    <style name="SpotsSearchBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="SpotsResultsLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/place_xml_textview_nearby_str</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <style name="SpotsResultsList" parent="RoundedRectListView">
+        <item name="android:background">@color/light_grey</item>
+        <item name="android:divider">@color/vimeo_light_grey</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+    </style>
+
+    <style name="Spot">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/listview_row_selector_spots</item>
+    </style>
+
+    <style name="SpotName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/listview_text_selector_spots</item>
+    </style>
+
+    <style name="SpotAddress">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+    <!-- End Spots: list of nearby places -->
+
+
+    <!-- Spots: Missions tab -->
+    <style name="LinearLayoutShadow.SpotsMissionsShortInfoContainer">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="LinearLayoutRounded.SpotsMissionsShortInfoContainer">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="LinearLayoutSpotsMissionsShortInfo">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">0.8</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="SpotsMissionsName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/aluminum5</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SpotsMissionsAddress">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:textColor">@color/aluminum4</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    
+     <style name="SpotsInfoMissionsName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/aluminum5</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SpotsInfoMissionsAddress">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:textColor">@color/aluminum4</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="SpotsMissionsInfoButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:text">@string/spots_missions_info_button</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="LinearLayoutMissionsShortInfoMisc">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">0.2</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="SpotsMissionsTreasureButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawableTop">@drawable/box_open</item>
+    </style>
+
+    <style name="LinearLayoutShadow.MissionsList">
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="RoundedRectListView.MissionsList">
+        <item name="android:scrollbars">none</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+    </style>
+
+    <style name="MissionRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:background">@drawable/listview_row_selector</item>
+    </style>
+
+    <style name="MissionIcon">
+        <item name="android:layout_width">32sp</item>
+        <item name="android:layout_height">32sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="MissionName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/listview_text_selector</item>
+    </style>
+
+    <style name="MissionPointValue">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textColor">@color/aluminum5</item>
+    </style>
+
+    <style name="MissionPointValueAbbrev">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/aluminum5</item>
+    </style>
+
+    <!-- Spots: Missions Tab: Open Treasure Button -->
+    <style name="TreasureButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+    <!-- End Spots: Missions tab -->
+
+
+    <!-- Spots: Check-in -->
+    <style name="SpotrGeneralBackground.CheckIn">
+        <item name="android:background">@color/vimeo_grey</item>
+    </style>
+
+    <style name="LinearLayoutShadow.CheckIn">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="LinearLayoutRounded.CheckIn">
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SpotName.CheckIn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:text">Name</item>
+    </style>
+
+    <style name="SpotAddress.CheckIn">
+        <item name="android:text">Address</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
+    <style name="MainCheckInButton" parent="LoginScreenButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/button_orange</item>
+        <item name="android:text">Check in</item>
+    </style>
+
+    <style name="EventItemRow" parent="UserItemRow">
+        <item name="android:background">@drawable/listview_row_selector_events</item>
+    </style>
+    <!-- Spots: End Check-in -->
+
+    <style name="ToolbarButton">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#C94700</item>
+        <item name="android:shadowDx">0.5</item>
+        <item name="android:shadowDy">0.5</item>
+        <item name="android:shadowRadius">0.5</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+    </style>
+
+    <style name="CheckInButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#6EC41D</item>
+        <item name="android:background">#6EC41D</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
+    <!-- Spots: Missions Tab: Open Treasure Button -->
+    <style name="InfoButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+    </style>
+
+    <!-- Ping -->
+    <!-- Note: style of clickable version defined programatically -->
+    <style name="TitleBarButton.ComposeMail">
+        <item name="android:src">@drawable/ic_inbox</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="InboxItemName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/listview_text_selector_spots</item>
+    </style>
+
+    <style name="InboxItemContents">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+    
+     <style name="InboxItemTime">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/aluminum6</item>
+    </style>
+
+    <style name="TitleBarButton.Ping">
+        <item name="android:src">@drawable/ic_ping_disabled</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="TitleBarButton.PingFriends">
+        <item name="android:src">@drawable/ic_ping_friends</item>
+    </style>
+    <!-- End Ping -->
+
+
+    <!--  Comment Button  -->
+    <style name="CommentButton">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textSize">8dp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+    </style>
+
+    <!-- Like Button -->
+    <style name="LikeButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textSize">8dp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+    </style>
+
+    <style name="Animations" />
+
+    <!-- PopDownMenu -->
+    <style name="Animations.PopDownMenu" />
+
+    <style name="Animations.PopDownMenu.Center">
+		<item name="@android:windowEnterAnimation">@anim/grow_from_top</item> 
+		<item name="@android:windowExitAnimation">@anim/shrink_from_bottom</item> 
+    </style>
+
+    <style name="Animations.PopDownMenu.Left">
+		<item name="@android:windowEnterAnimation">@anim/grow_from_topleft_to_bottomright</item>  
+        <item name="@android:windowExitAnimation">@anim/shrink_from_bottomright_to_topleft</item>
+    </style>
+
+    <style name="Animations.PopDownMenu.Right">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_topright_to_bottomleft</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_bottomleft_to_topright</item>
+    </style>
+
+    <style name="Animations.PopDownMenu.Reflect">
+        <item name="@android:windowEnterAnimation">@anim/pump_top</item>
+        <item name="@android:windowExitAnimation">@anim/disappear</item>
+    </style>
+
+    <!-- PopUpMenu -->
+    <style name="Animations.PopUpMenu" />
+
+    <style name="Animations.PopUpMenu.Center">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_bottom</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_top</item>
+    </style>
+
+    <style name="Animations.PopUpMenu.Left">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_bottomleft_to_topright</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_topright_to_bottomleft</item>
+    </style>
+
+    <style name="Animations.PopUpMenu.Right">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_bottomright_to_topleft</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_topleft_to_bottomright</item>
+    </style>
+
+    <style name="Animations.PopUpMenu.Reflect">
+        <item name="@android:windowEnterAnimation">@anim/pump_bottom</item>
+        <item name="@android:windowExitAnimation">@anim/disappear</item>
+    </style>
+
+    <!-- Misc -->
+    <style name="SpotrGeneralBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/vimeo_grey</item>
+    </style>
+
+    <style name="LinearLayoutShadow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">@drawable/shadow</item>
+    </style>
+
+    <style name="LinearLayoutRounded">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/rectangle_rounded_white</item>
+    </style>
+
+    <style name="CustomListView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:divider">@color/aluminum2</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:footerDividersEnabled">false</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <style name="RoundedRectListView" parent="CustomListView">
+        <item name="android:background">@drawable/rectangle_rounded_white</item>
+    </style>
+
+    <style name="VerticalSpacer">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/aluminum2</item>
+    </style>
+
+    <style name="HorizontalSpacer">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="MapView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:apiKey">@string/google_api_key</item>
+        <item name="android:clickable">true</item>
+    </style>
+    
+    <style name="Button">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@android:color/black</item>
+        <item name="android:shadowRadius">1.2</item>
+        <item name="android:shadowDx">-0.5</item>
+        <item name="android:shadowDy">-0.6</item>
+    </style>
+    <!-- End Misc -->
+
+</resources>

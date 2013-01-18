@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.csun.bookboi.layout.DashboardLayout
+        android:id="@+id/main_menu_xml_dashboard"
+        style="@style/Dashboard" >
+        
+        <Button
+            android:id="@+id/main_menu_btn_me"
+            style="@style/MainMenuButton.Buy" />
+
+        <Button
+            android:id="@+id/main_menu_btn_friends"
+            style="@style/MainMenuButton.Sell" />        
+        
+    </com.csun.bookboi.layout.DashboardLayout>
+</RelativeLayout>
