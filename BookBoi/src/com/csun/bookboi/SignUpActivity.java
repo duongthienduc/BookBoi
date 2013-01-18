@@ -3,10 +3,10 @@ package com.csun.bookboi;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class BookStoreActivity extends Activity {
+public class SignUpActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_book_store);
+		setContentView(R.layout.activity_signup);
 	}
 }

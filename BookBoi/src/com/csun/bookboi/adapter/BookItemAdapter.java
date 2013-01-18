@@ -1,4 +1,4 @@
-package com.csun.bookboi;
+package com.csun.bookboi.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;

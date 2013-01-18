@@ -38,5 +38,17 @@ public class TestActivity extends Activity {
 				startActivity(new Intent(getApplicationContext(), SubmitBookActivity.class));
 			}
 		});
+		
+		findViewById(R.id.activity_test_xml_button_signup).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_bookstore).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), BookStoreActivity.class));
+			}
+		});
 	}
 }

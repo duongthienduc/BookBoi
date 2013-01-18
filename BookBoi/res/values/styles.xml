@@ -163,6 +163,7 @@
 
     <style name="LoginScreenButton.SignUp">
         <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">80dp</item>
         <item name="android:layout_marginBottom">7dp</item>
         <item name="android:layout_alignBottom">@id/login_xml_tagline</item>  
         <item name="android:layout_alignParentRight">true</item>

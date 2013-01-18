@@ -11,6 +11,14 @@
         android:background="@color/aluminum6"
         android:orientation="vertical" >
 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Activities"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
         <Button 
             android:id="@+id/activity_test_xml_button_login"
             style="@style/SubmitButton"
@@ -30,6 +38,20 @@
             style="@style/SubmitButton"
             android:layout_width="match_parent"
             android:text="SubmitBook"
+            />
+         
+         <Button 
+            android:id="@+id/activity_test_xml_button_signup"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="SignUp"
+            />
+         
+          <Button 
+            android:id="@+id/activity_test_xml_button_bookstore"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="BookStore"
             />
     </LinearLayout>
 
