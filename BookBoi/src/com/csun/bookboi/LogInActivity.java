@@ -31,6 +31,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
+/**
+ * Login Screen
+ * @author chan
+ */
 public class LogInActivity extends Activity {
 	private final String DEBUG_TAG = "MainActivity";
 	private final String LOGIN_URL = "http://bookboi.com/chan/login.php";
