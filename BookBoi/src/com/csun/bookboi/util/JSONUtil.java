@@ -14,6 +14,14 @@ import android.util.Log;
 
 public class JSONUtil {
 	private static final String DEBUG_TAG = "JSONUtil";
+	
+	/**
+	 * Non-construct object
+	 */
+	private JSONUtil() {
+		
+	}
+	
 	/**
 	 * Parse an input stream from HttpClient
 	 * 
@@ -25,7 +33,7 @@ public class JSONUtil {
 	 * 			Wrong data format
 	 * 			
 	 */
-	public static JSONArray parseArray(InputStream input) {
+	public static JSONArray buildArray(InputStream input) {
 		String result = "";
 		JSONArray json = null;
 		BufferedReader reader = null;
@@ -59,7 +67,7 @@ public class JSONUtil {
 	 * @throws JSONException
 	 * 			Wrong data format
 	 */
-	public static JSONObject parseObject(InputStream input) {
+	public static JSONObject buildObject(InputStream input) {
 		String result = "";
 		JSONObject json = null;
 		try {

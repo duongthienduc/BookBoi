@@ -21,6 +21,13 @@ import java.util.List;
 public class RESTUtil {
 	public static final String DEBUG_TAG = "RESTUtil";
 	
+	/**
+	 * Non-construct object
+	 */
+	private RESTUtil() {
+		
+	}
+	
 	public static InputStream post(String url, List<NameValuePair> data) {
 		InputStream input = null;
 		HttpClient client = SingletonHttpClient.newInstance();

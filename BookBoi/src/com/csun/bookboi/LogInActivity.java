@@ -116,7 +116,7 @@ public class LogInActivity extends Activity {
 		protected void onPostExecute(InputStream input) {
 			progressDialog.dismiss();
 			if (input != null) {
-				JSONObject result = JSONUtil.parseObject(input);
+				JSONObject result = JSONUtil.buildObject(input);
 				if (result != null && result.has("id")) {
 					try {
 						int id = result.getInt("id");

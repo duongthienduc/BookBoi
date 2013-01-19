@@ -5,22 +5,19 @@
     android:orientation="vertical" >
 
     <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView1"
+        android:id="@+id/activity_book_store_XML_auto_complete_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="AutoCompleteTextView" >
-
-        <requestFocus />
+        android:ems="10">
     </AutoCompleteTextView>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/activity_book_store_XML_button_search"
         style="@style/SubmitButton"
         android:text="Search" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/activity_book_store_XML_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     </ListView>

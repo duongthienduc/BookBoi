@@ -30,7 +30,7 @@ public class GroupParser extends AbstractParser<Group> {
      */
     public Group<BookBoiType> parse(JSONObject json) throws JSONException {
         Group<BookBoiType> group = new Group<BookBoiType>();
-        Iterator<String> it = (Iterator<String>)json.keys();
+        Iterator<String> it = (Iterator<String>) json.keys();
         while (it.hasNext()) {
             String key = it.next();
             if (key.equals("type")) {

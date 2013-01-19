@@ -1,8 +1,11 @@
 package com.csun.bookboi.types;
 
-public class Book implements BookBoiType {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Book implements BookBoiType, Parcelable {
 	private static final String INITIALIZE_STATE_STRING = "unknown";
-	private static final double INITIALIZE_STATE_DOUBLE = 0.0;
+	private static final double INITIALIZE_STATE_DOUBLE = 0.99;
 	
 	private String title;
 	private String author;
@@ -26,6 +29,10 @@ public class Book implements BookBoiType {
 		edition = INITIALIZE_STATE_STRING;
 		
 		price = INITIALIZE_STATE_DOUBLE;
+	}
+	
+	public Book(Parcel in) {
+		
 	}
 
 	public String getTitle() {
@@ -82,5 +89,13 @@ public class Book implements BookBoiType {
 
 	public void setEdition(String edition) {
 		this.edition = edition;
+	}
+
+	public int describeContents() {
+		return 0;
+	}
+
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO write to all fields
 	}
 }
