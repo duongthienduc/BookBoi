@@ -45,12 +45,24 @@
             android:name="com.csun.bookboi.BookStoreActivity"
             android:label="@string/app_name" >
         </activity>
+        
+         <activity
+            android:name="com.csun.bookboi.EmailActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.csun.bookboi.prototype.EmailActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.csun.bookboi.CheckOutActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" >   
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" ></uses-permission>
     
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >   
-    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" ></uses-permission>
 
 </manifest>

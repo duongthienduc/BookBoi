@@ -12,8 +12,8 @@ import com.csun.bookboi.parsers.GroupParser;
 import com.csun.bookboi.parsers.BookParser;
 import com.csun.bookboi.types.Book;
 import com.csun.bookboi.types.Group;
-import com.csun.bookboi.util.JSONUtil;
-import com.csun.bookboi.util.RESTUtil;
+import com.csun.bookboi.utils.JSONUtil;
+import com.csun.bookboi.utils.RESTUtil;
 
 import android.app.Activity;
 import android.os.AsyncTask;

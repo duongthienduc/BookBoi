@@ -9,8 +9,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.csun.bookboi.util.JSONUtil;
-import com.csun.bookboi.util.RESTUtil;
+import com.csun.bookboi.utils.JSONUtil;
+import com.csun.bookboi.utils.RESTUtil;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;

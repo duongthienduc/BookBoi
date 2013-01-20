@@ -1,4 +1,4 @@
-package com.csun.bookboi.util;
+package com.csun.bookboi.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

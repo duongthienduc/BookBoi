@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="All Activities"
             android:layout_gravity="center"
+            android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Button 
@@ -53,6 +54,21 @@
             android:layout_width="match_parent"
             android:text="BookStore"
             />
+          
+           <Button 
+            android:id="@+id/activity_test_xml_button_email"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Email"
+            />
+           
+            <Button 
+            android:id="@+id/activity_test_xml_button_checkout"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="CheckOut"
+            />
+ 
     </LinearLayout>
 
 </ScrollView>

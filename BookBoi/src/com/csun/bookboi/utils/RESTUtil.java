@@ -1,4 +1,4 @@
-package com.csun.bookboi.util;
+package com.csun.bookboi.utils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -11,7 +11,7 @@ import org.apache.http.client.methods.HttpPost;
 
 import android.util.Log;
 
-import com.csun.bookboi.service.SingletonHttpClient;
+import com.csun.bookboi.services.SingletonHttpClient;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.csun.bookboi.service;
+package com.csun.bookboi.services;
 
 import org.apache.http.HttpVersion;
 import org.apache.http.client.HttpClient;
@@ -51,6 +51,12 @@ public class SingletonHttpClient {
 			httpClient = new DefaultHttpClient(conMgr, params);
 		}
 		return httpClient;
+	}
+	
+	public static synchronized void shutdonw() {
+		if (httpClient != null) {
+			httpClient.getConnectionManager().shutdown();
+		}
 	}
 	
 	public static HttpClient newInstance() {

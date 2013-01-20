@@ -1,5 +1,6 @@
 package com.csun.bookboi;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,6 +49,18 @@ public class TestActivity extends Activity {
 		findViewById(R.id.activity_test_xml_button_bookstore).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getApplicationContext(), BookStoreActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_email).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), EmailActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_checkout).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), CheckOutActivity.class));
 			}
 		});
 	}
