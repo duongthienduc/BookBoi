@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/aluminum6"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@color/aluminum6" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,60 +15,58 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All Activities"
             android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="All Activities"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
 
-        <Button 
+        <Button
             android:id="@+id/activity_test_xml_button_login"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="LogIn"
-            />
-        
-        <Button 
+            android:text="LogIn" />
+
+        <Button
             android:id="@+id/activity_test_xml_button_main_menu"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="MainMenu"
-            />
-        
-         <Button 
+            android:text="MainMenu" />
+
+        <Button
             android:id="@+id/activity_test_xml_button_submit_book"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="SubmitBook"
-            />
-         
-         <Button 
+            android:text="SubmitBook" />
+
+        <Button
             android:id="@+id/activity_test_xml_button_signup"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="SignUp"
-            />
-         
-          <Button 
+            android:text="SignUp" />
+
+        <Button
             android:id="@+id/activity_test_xml_button_bookstore"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="BookStore"
-            />
-          
-           <Button 
+            android:text="BookStore" />
+
+        <Button
             android:id="@+id/activity_test_xml_button_email"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="Email"
-            />
-           
-            <Button 
+            android:text="Email" />
+
+        <Button
             android:id="@+id/activity_test_xml_button_checkout"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
-            android:text="CheckOut"
-            />
- 
+            android:text="CheckOut" />
+
+        <Button
+            android:id="@+id/activity_test_xml_button_google"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Google" />
     </LinearLayout>
 
 </ScrollView>

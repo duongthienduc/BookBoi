@@ -171,7 +171,7 @@ public class BookStoreActivity extends Activity {
 							publishProgress(b);
 						}
 						catch (JSONException e) {
-							Log.v(DEBUG_TAG, "Exception occured in doInBackGround()" + e);
+							Log.e(DEBUG_TAG, "Exception occured in doInBackGround()", e);
 						}
 					}
 				}

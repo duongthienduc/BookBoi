@@ -32,7 +32,7 @@ public class Book implements BookBoiType, Parcelable {
 	}
 	
 	public Book(Parcel in) {
-		
+		readFromParcel(in);
 	}
 
 	public String getTitle() {
@@ -95,7 +95,24 @@ public class Book implements BookBoiType, Parcelable {
 		return 0;
 	}
 
-	public void writeToParcel(Parcel dest, int flags) {
-		// TODO write to all fields
+	@Override
+	public void writeToParcel(Parcel out, int flags) {
+		out.writeString(title);
+		out.writeString(author);
+		out.writeString(course);
+		out.writeString(section);
+		out.writeDouble(price);
+		out.writeString(isbn);
+		out.writeString(edition);
+	}
+	
+	public void readFromParcel(Parcel in) {
+		title = in.readString();
+		author = in.readString();
+		course = in.readString();
+		section = in.readString();
+		price = in.readDouble();
+		isbn = in.readString();
+		edition = in.readString();
 	}
 }

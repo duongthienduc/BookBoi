@@ -165,7 +165,7 @@
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">80dp</item>
         <item name="android:layout_marginBottom">7dp</item>
-        <item name="android:layout_alignBottom">@id/login_xml_tagline</item>  
+        <item name="android:layout_alignBottom">@id/activity_login_XML_tagline</item>  
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:background">@drawable/button_pink</item>
         <item name="android:text">@string/login_xml_button_signup_str</item>
@@ -174,14 +174,14 @@
     <style name="LoginShadowBorderTop">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">6dp</item>
-        <item name="android:layout_alignTop">@id/login_xml_signup_content</item> 
+        <item name="android:layout_alignTop">@id/activity_login_XML_signup_content</item> 
         <item name="android:background">@drawable/shadow_border_top</item>
     </style>
 
     <style name="LoginShadowBorderBottom">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">7dp</item>
-   		<item name="android:layout_alignBottom">@id/login_xml_signup_content</item> 
+   		<item name="android:layout_alignBottom">@id/activity_login_XML_signup_content</item> 
         <item name="android:background">@drawable/shadow_border_bottom</item>
     </style>
 

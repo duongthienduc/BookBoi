@@ -48,11 +48,11 @@ public class JSONUtil {
 			result = content.toString();
 			json = new JSONArray(result);
 		} catch (UnsupportedEncodingException e) {
-			Log.v(DEBUG_TAG, "Exception occurs in parseArray() " + e);
+			Log.e(DEBUG_TAG, "Exception occurs in parseArray()", e);
 		} catch (IOException e) {
-			Log.v(DEBUG_TAG, "Exception occurs in parseArray() " + e);
+			Log.e(DEBUG_TAG, "Exception occurs in parseArray()", e);
 		} catch (JSONException e) {
-			Log.v(DEBUG_TAG, "Exception occurs in parseArray() " + e);
+			Log.e(DEBUG_TAG, "Exception occurs in parseArray()", e);
 		}
 		return json;
 	}
@@ -82,9 +82,9 @@ public class JSONUtil {
 			result = content.toString();
 			json = new JSONObject(result);
 		} catch (IOException e) {
-			Log.v(DEBUG_TAG, "Exception occurs in parseObject() " + e);
+			Log.e(DEBUG_TAG, "Exception occurs in parseObject()", e);
 		} catch (JSONException e) {
-			Log.v(DEBUG_TAG, "Exception occurs in parseObject() " + e);
+			Log.e(DEBUG_TAG, "Exception occurs in parseObject()", e);
 		}
 		return json;
 	}

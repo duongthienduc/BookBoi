@@ -5,15 +5,15 @@
     <RelativeLayout style="@style/LoginSignUpContainer" >
 
         <RelativeLayout
-            android:id="@+id/login_xml_signup_content"
+            android:id="@+id/activity_login_XML_signup_content"
             style="@style/LoginSignUpContent" >
 
             <TextView
-                android:id="@+id/login_xml_tagline"
+                android:id="@+id/activity_login_XML_tagline"
                 style="@style/LoginTagLine" />
 
             <Button
-                android:id="@+id/login_xml_button_signup"
+                android:id="@+id/activity_login_XML_button_signup"
                 style="@style/LoginScreenButton.SignUp" />
         </RelativeLayout>
 
@@ -25,19 +25,19 @@
     <LinearLayout style="@style/LoginInputFields" >
 
         <EditText
-            android:id="@+id/login_xml_edittext_email_id"
+            android:id="@+id/activity_login_XML_edittext_email_id"
             style="@style/LoginInput.Email" >
 
             <!-- <requestFocus /> -->
         </EditText>
 
         <EditText
-            android:id="@+id/login_xml_edittext_password_id"
+            android:id="@+id/activity_login_XML_edittext_password_id"
             style="@style/LoginInput.Password" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/login_xml_button_login"
+        android:id="@+id/activity_login_XML_button_login"
         style="@style/LoginScreenButton.Login" />
 
 </LinearLayout>

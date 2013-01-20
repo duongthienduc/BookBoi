@@ -5,20 +5,15 @@
     android:fillViewport="true" >
 
     <LinearLayout style="@style/SignupBackground" >
-
         <LinearLayout style="@style/SignupFormContainer" >
-
             <TextView style="@style/SignupInputLabel.Email" />
-
             <EditText
                 android:id="@+id/signup_xml_edittext_email_id"
                 style="@style/SignupInputEmail" />
         </LinearLayout>
 
         <LinearLayout style="@style/SignupFormContainer" >
-
             <TextView style="@style/SignupInputLabel.Password" />
-
             <EditText
                 android:id="@+id/signup_xml_edittext_password_id"
                 style="@style/SignupInputPassword" />

@@ -54,13 +54,13 @@ public class LogInActivity extends Activity {
 	}
 
 	private void setUpUi() {
-		mUserEditText = (EditText) findViewById(R.id.login_xml_edittext_email_id);
-		mPasswordEditText = (EditText) findViewById(R.id.login_xml_edittext_password_id);
+		mUserEditText = (EditText) findViewById(R.id.activity_login_XML_edittext_email_id);
+		mPasswordEditText = (EditText) findViewById(R.id.activity_login_XML_edittext_password_id);
 	}
 
 	private void prepareLogin() {
 		if (isNetworkAvailableAndConnected()) {
-			findViewById(R.id.login_xml_button_login).setOnClickListener(
+			findViewById(R.id.activity_login_XML_button_login).setOnClickListener(
 				new OnClickListener() {
 					public void onClick(View v) {
 						onPerformLogin();
@@ -125,7 +125,7 @@ public class LogInActivity extends Activity {
 							LogInActivity.this.finish();
 						}
 					} catch (JSONException e) {
-						Log.v(DEBUG_TAG, "Exception has occured while parsing JSON" + e);
+						Log.e(DEBUG_TAG, "Exception has occured while parsing JSON", e);
 					}
 				} else {
 					// TODO: Use DialogFragment
