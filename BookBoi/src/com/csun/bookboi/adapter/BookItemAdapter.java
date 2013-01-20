@@ -5,7 +5,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.Inflater;
 
 import com.csun.bookboi.R;
+import com.csun.bookboi.imagehelper.ExtendedImageDownloader;
 import com.csun.bookboi.types.Book;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -23,7 +30,10 @@ public class BookItemAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater inflater;
 	private List<Book> books;
+	private ImageLoader loader;
 	private AtomicBoolean keepOnAppending = new AtomicBoolean(true);
+	private DisplayImageOptions options;
+	private ImageLoaderConfiguration config;
 	
 	static class ViewHolder {
 		ImageView bookCoverImageView;
@@ -39,6 +49,28 @@ public class BookItemAdapter extends BaseAdapter {
 		this.context = context;
 		this.books = books;
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		// this.loader = new ImageLoader(context);
+		
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
+			.threadPriority(Thread.NORM_PRIORITY - 2)
+			.memoryCacheSize(2 * 1024 * 1024) // 2 Mb
+			.denyCacheImageMultipleSizesInMemory()
+			.discCacheFileNameGenerator(new Md5FileNameGenerator())
+			.imageDownloader(new ExtendedImageDownloader(context))
+			.tasksProcessingOrder(QueueProcessingType.LIFO)
+			.enableLogging() // Not necessary in common
+			.build();
+		
+		options = new DisplayImageOptions.Builder()
+			.showStubImage(R.drawable.ic_book)
+			.showImageForEmptyUri(R.drawable.ic_book)
+			//.cacheInMemory()
+			//.cacheOnDisc()
+			//.displayer(new RoundedBitmapDisplayer(30))
+			.build();
+		
+		loader = ImageLoader.getInstance();
+		loader.init(config);
 	}
 
 	public int getCount() {
@@ -86,6 +118,11 @@ public class BookItemAdapter extends BaseAdapter {
 		holder.bookAuthorTextView.setText(b.getAuthor());
 		holder.courseTextView.setText(b.getCourse());
 		holder.priceTextView.setText("$" + Double.toString(b.getPrice()));
+		if (!b.getCoverUrl().equals(Book.INITIALIZE_STATE_STRING) && !b.getCoverUrl().equals("")) {
+			loader.displayImage(b.getCoverUrl(), holder.bookCoverImageView, options);
+		} 
+		// loader.clearDiscCache();
+		// loader.clearMemoryCache();
 	}
 	
 	boolean isLastItem(int index) {

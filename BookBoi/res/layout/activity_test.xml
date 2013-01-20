@@ -67,6 +67,12 @@
             style="@style/SubmitButton"
             android:layout_width="match_parent"
             android:text="Google" />
+        
+        <Button
+            android:id="@+id/activity_test_xml_button_console"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Console" />
     </LinearLayout>
 
 </ScrollView>

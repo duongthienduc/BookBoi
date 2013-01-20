@@ -27,7 +27,6 @@ public class CheckOutActivity extends Activity {
 	private void registerCheckOutButton() {
 		final Button b = (Button) findViewById(R.id.activity_check_out_XML_button_order);
 		b.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				new SendEmailConfirmationTask().execute("ngocchan.nguyen.61@my.csun.edu");
 				b.setEnabled(false);

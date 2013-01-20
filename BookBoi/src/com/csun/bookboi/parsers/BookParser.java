@@ -26,7 +26,7 @@ public class BookParser extends AbstractParser<Book> {
 		}
 		
 		if (json.has("ISBN")) {
-			obj.setSection(json.getString("ISBN"));
+			obj.setIsbn(json.getString("ISBN"));
 		}
 		
 		if (json.has("Edition")) {
@@ -35,6 +35,10 @@ public class BookParser extends AbstractParser<Book> {
 		
 		if (json.has("Price")) {
 			obj.setPrice(json.getDouble("Price"));
+		}
+		 
+		if (json.has("Cover")) {
+			obj.setCoverUrl(json.getString("Cover"));
 		}
 		return obj;
 	}

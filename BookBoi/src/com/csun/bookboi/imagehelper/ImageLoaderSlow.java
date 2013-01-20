@@ -32,7 +32,7 @@ import android.graphics.RectF;
 import android.util.Log;
 import android.widget.ImageView;
 
-public class ImageLoader {
+public class ImageLoaderSlow {
 	private static final String DEBUG_TAG = "ImageLoader";
 	private MemoryCache memoryCache = new MemoryCache();
 	private FileCache fileCache;
@@ -40,7 +40,7 @@ public class ImageLoader {
 	private ExecutorService executorService;
 	private final int stubId = com.csun.bookboi.R.drawable.ic_book;
 
-	public ImageLoader(Context context) {
+	public ImageLoaderSlow(Context context) {
 		fileCache = new FileCache(context);
 		executorService = Executors.newFixedThreadPool(5);
 	}

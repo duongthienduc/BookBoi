@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Book implements BookBoiType, Parcelable {
-	private static final String INITIALIZE_STATE_STRING = "unknown";
-	private static final double INITIALIZE_STATE_DOUBLE = 0.99;
+	public static final String INITIALIZE_STATE_STRING = "unknown";
+	public static final double INITIALIZE_STATE_DOUBLE = 0.99;
 	
 	private String title;
 	private String author;
@@ -15,6 +15,7 @@ public class Book implements BookBoiType, Parcelable {
 	private double price;
 	private String isbn;
 	private String edition;
+	private String coverUrl;
 	
 	/**
 	 * Constructor
@@ -27,6 +28,7 @@ public class Book implements BookBoiType, Parcelable {
 		section = INITIALIZE_STATE_STRING;
 		isbn = INITIALIZE_STATE_STRING;
 		edition = INITIALIZE_STATE_STRING;
+		coverUrl = INITIALIZE_STATE_STRING;
 		
 		price = INITIALIZE_STATE_DOUBLE;
 	}
@@ -90,12 +92,19 @@ public class Book implements BookBoiType, Parcelable {
 	public void setEdition(String edition) {
 		this.edition = edition;
 	}
+	
+	public String getCoverUrl() {
+		return coverUrl;
+	}
+
+	public void setCoverUrl(String coverUrl) {
+		this.coverUrl = coverUrl;
+	}
 
 	public int describeContents() {
 		return 0;
 	}
 
-	@Override
 	public void writeToParcel(Parcel out, int flags) {
 		out.writeString(title);
 		out.writeString(author);
@@ -104,6 +113,7 @@ public class Book implements BookBoiType, Parcelable {
 		out.writeDouble(price);
 		out.writeString(isbn);
 		out.writeString(edition);
+		out.writeString(coverUrl);
 	}
 	
 	public void readFromParcel(Parcel in) {
@@ -114,5 +124,8 @@ public class Book implements BookBoiType, Parcelable {
 		price = in.readDouble();
 		isbn = in.readString();
 		edition = in.readString();
+		coverUrl = in.readString();
 	}
+
+	
 }

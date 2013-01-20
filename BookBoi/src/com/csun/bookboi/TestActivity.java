@@ -69,5 +69,11 @@ public class TestActivity extends Activity {
 				startActivity(new Intent(getApplicationContext(), GoogleBookActivity.class));
 			}
 		});
+		
+		findViewById(R.id.activity_test_xml_button_console).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), ConsoleTestingActivity.class));
+			}
+		});
 	}
 }

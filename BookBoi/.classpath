@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="C:/Users/chan/git/BookBoi/BookBoi/libs/activation.jar"/>
 	<classpathentry kind="lib" path="C:/Users/chan/git/BookBoi/BookBoi/libs/additionnal.jar"/>
 	<classpathentry kind="lib" path="C:/Users/chan/git/BookBoi/BookBoi/libs/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/chan/git/BookBoi/BookBoi/libs/universal-image-loader-1.7.0-with-sources.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -76,7 +76,6 @@ public class JSONUtil {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				content.append(line + "\n");
-				Log.v(DEBUG_TAG, content.toString());
 			}
 			input.close();
 			result = content.toString();

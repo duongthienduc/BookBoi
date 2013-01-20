@@ -21,7 +21,6 @@ public class EmailActivity extends Activity {
 		// registerSearchButton();
 		Button btn = (Button) findViewById(com.csun.bookboi.R.id.prototype_activity_email_XML_button);
 		btn.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				sendSampleMail();
 			}

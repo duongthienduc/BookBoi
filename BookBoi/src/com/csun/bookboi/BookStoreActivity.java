@@ -6,12 +6,14 @@ import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.csun.bookboi.adapter.BookItemAdapter;
 import com.csun.bookboi.parsers.GroupParser;
 import com.csun.bookboi.parsers.BookParser;
 import com.csun.bookboi.types.Book;
 import com.csun.bookboi.types.Group;
+import com.csun.bookboi.utils.GoogleBookUtil;
 import com.csun.bookboi.utils.JSONUtil;
 import com.csun.bookboi.utils.RESTUtil;
 
@@ -168,6 +170,7 @@ public class BookStoreActivity extends Activity {
 					if (!isCancelled()) {
 						try {
 							Book b = new BookParser().parse(array.getJSONObject(i));
+							b.setCoverUrl(getBookCoverUrlFromGoogle(b.getIsbn()));
 							publishProgress(b);
 						}
 						catch (JSONException e) {
@@ -177,6 +180,14 @@ public class BookStoreActivity extends Activity {
 				}
 			}
 			return true;
+		}
+		
+		private String getBookCoverUrlFromGoogle(String isbn) throws JSONException {
+			String formatISBN = isbn.substring(0, 3) + isbn.substring(4);
+			formatISBN = formatISBN.substring(0, 13);
+			InputStream in = RESTUtil.get(GoogleBookUtil.buildSearchQueryFromISBN(formatISBN));
+			JSONObject json = JSONUtil.buildObject(in);
+			return GoogleBookUtil.parseBookCoverUrl(json);
 		}
 	}
 
