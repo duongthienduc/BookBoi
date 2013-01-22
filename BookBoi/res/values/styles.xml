@@ -317,29 +317,14 @@
         <item name="android:background">@null</item>
     </style>
 
-     <style name="MainMenuButton.Find">
+     <style name="MainMenuButton.Buy">
         <item name="android:drawableTop">@drawable/ic_main_menu_ping</item>
-        <item name="android:text">Find</item>
+        <item name="android:text">Buy</item>
     </style>
     
-    <style name="MainMenuButton.Store">
-        <item name="android:drawableTop">@drawable/ic_main_menu_ping</item>
-        <item name="android:text">Store</item>
-    </style>
-
     <style name="MainMenuButton.Sell">
-        <item name="android:drawableTop">@drawable/ic_main_menu_ping</item>
+        <item name="android:drawableTop">@drawable/ic_main_menu_friend_request</item>
         <item name="android:text">Sell</item>
-    </style>
-
-    <style name="MainMenuButton.Messages">
-        <item name="android:drawableTop">@drawable/ic_main_menu_ping</item>
-        <item name="android:text">Messages</item>
-    </style>
-    
-     <style name="MainMenuButton.Orders">
-        <item name="android:drawableTop">@drawable/ic_main_menu_ping</item>
-        <item name="android:text">Orders</item>
     </style>
     
      <style name="SubmitButton">

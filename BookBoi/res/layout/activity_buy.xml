@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aluminum6"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aluminum5"
+        >
+
+        <Button
+            android:id="@+id/activity_buy_XML_button_search"
+            style="@style/SubmitButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:text="Search" />
+
+        <Button
+            android:id="@+id/activity_buy_XML_button_scan"
+            style="@style/SubmitButton"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/activity_buy_XML_button_search"
+            android:text="Scan" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/activity_buy_XML_edit_text_searching_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+    </EditText>
+
+    <Spinner
+        android:id="@+id/activity_buy_XML_spinner_search_option"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/activity_buy_XML_list_view_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

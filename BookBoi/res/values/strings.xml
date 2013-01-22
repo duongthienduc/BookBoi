@@ -1,6 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">BookBoi</string>
+    
+    <string-array name="search_book_options">
+        <item>Title</item>
+        <item>Author</item>
+        <item>Course</item>
+        <item>ISBN</item>
+    </string-array>
+    
 	 <!-- login.xml -->
     <string name="login_xml_textview_email_str">Email</string>
     <string name="login_xml_textview_password_str">Password</string>

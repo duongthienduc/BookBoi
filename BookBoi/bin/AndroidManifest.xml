@@ -64,6 +64,25 @@
             android:label="@string/app_name" >
         </activity>
         
+         <activity
+            android:name="com.csun.bookboi.BuyActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.csun.bookboi.SellActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
+        
+          <activity
+            android:name="com.csun.bookboi.SubmitListingActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
+ 
+        
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

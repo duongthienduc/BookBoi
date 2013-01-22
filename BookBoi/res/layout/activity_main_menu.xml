@@ -8,23 +8,12 @@
         style="@style/Dashboard" >
         
         <Button
-            android:id="@+id/activity_main_menu_XML_button_find"
-            style="@style/MainMenuButton.Find" />
+            android:id="@+id/activity_main_menu_XML_button_buy"
+            style="@style/MainMenuButton.Buy" />
 
         <Button
             android:id="@+id/activity_main_menu_XML_button_sell"
             style="@style/MainMenuButton.Sell" />        
             
-        <Button
-            android:id="@+id/activity_main_menu_XML_button_store"
-            style="@style/MainMenuButton.Store" />        
-            
-         <Button
-            android:id="@+id/activity_main_menu_XML_button_message"
-            style="@style/MainMenuButton.Messages" />    
-        
-         <Button
-            android:id="@+id/activity_main_menu_XML_button_orders"
-            style="@style/MainMenuButton.Orders" />
     </com.csun.bookboi.layout.DashboardLayout>
 </RelativeLayout>

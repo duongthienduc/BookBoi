@@ -1,15 +1,10 @@
 package com.csun.bookboi.provider;
 
+import com.csun.bookboi.types.Book;
+
 public class BookProvider {
-	private String title;
-	private String author;
-	private String course;
-	private String section;
-	
-	private double price;
-	private String isbn;
-	private String edition;
-	
+	private Book book;
 	public BookProvider() {
+		
 	}
 }

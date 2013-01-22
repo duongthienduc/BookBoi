@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/aluminum6" >
+
+    <EditText
+        android:id="@+id/activity_submit_listing_XML_edit_text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_submit_listing_XML_edit_text_condition"
+        android:layout_below="@+id/activity_submit_listing_XML_text_view_price"
+        android:hint="Price"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/activity_submit_listing_XML_text_view_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_submit_listing_XML_edit_text_price"
+        android:layout_below="@+id/activity_submit_listing_XML_text_view_course"
+        android:layout_marginTop="34dp"
+        android:text="Price" />
+
+    <EditText
+        android:id="@+id/activity_submit_listing_XML_edit_text_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/activity_submit_listing_XML_text_view_condition"
+        android:layout_marginLeft="14dp"
+        android:ems="10"
+        android:hint="Condition"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/activity_submit_listing_XML_button_submit"
+        style="@style/SubmitButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="22dp"
+        android:layout_marginRight="23dp"
+        android:text="Submit" />
+
+    <ImageView
+        android:id="@+id/activity_submit_listing_XML_image_view_cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_submit_listing_XML_text_view_price"
+        android:layout_alignTop="@+id/activity_submit_listing_XML_text_view_title"
+        android:src="@drawable/ic_book" />
+
+    <TextView
+        android:id="@+id/activity_submit_listing_XML_text_view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/activity_submit_listing_XML_text_view_condition"
+        android:text="Title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/activity_submit_listing_XML_text_view_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/activity_submit_listing_XML_image_view_cover"
+        android:layout_alignRight="@+id/activity_submit_listing_XML_text_view_title"
+        android:text="Author" />
+
+    <TextView
+        android:id="@+id/activity_submit_listing_XML_text_view_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_submit_listing_XML_text_view_author"
+        android:layout_below="@+id/activity_submit_listing_XML_text_view_author"
+        android:layout_marginTop="14dp"
+        android:text="Course" />
+
+    <TextView
+        android:id="@+id/activity_submit_listing_XML_text_view_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_submit_listing_XML_edit_text_condition"
+        android:layout_below="@+id/activity_submit_listing_XML_edit_text_price"
+        android:layout_marginTop="20dp"
+        android:text="Condition" />
+
+</RelativeLayout>

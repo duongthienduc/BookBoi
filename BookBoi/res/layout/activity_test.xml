@@ -73,6 +73,18 @@
             style="@style/SubmitButton"
             android:layout_width="match_parent"
             android:text="Console" />
+        
+         <Button
+            android:id="@+id/activity_test_xml_button_buy"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Buy" />
+         
+         <Button
+            android:id="@+id/activity_test_xml_button_sell"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Sell" />
     </LinearLayout>
 
 </ScrollView>

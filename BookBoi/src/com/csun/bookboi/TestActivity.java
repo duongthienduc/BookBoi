@@ -75,5 +75,17 @@ public class TestActivity extends Activity {
 				startActivity(new Intent(getApplicationContext(), ConsoleTestingActivity.class));
 			}
 		});
+		
+		findViewById(R.id.activity_test_xml_button_buy).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), BuyActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_sell).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), SellActivity.class));
+			}
+		});
 	}
 }
