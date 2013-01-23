@@ -14,6 +14,7 @@
         android:label="@string/app_name" >
         <activity
             android:name="com.csun.bookboi.TestActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,26 +24,32 @@
         </activity>
         <activity
             android:name="com.csun.bookboi.LogInActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.csun.bookboi.SubmitBookActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.csun.bookboi.MainMenuActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.csun.bookboi.SignUpActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.csun.bookboi.BookStoreActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.csun.bookboi.EmailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.csun.bookboi.prototype.EmailActivity" />
@@ -52,15 +59,18 @@
         </activity>
         <activity
             android:name="com.csun.bookboi.CheckOutActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.csun.bookboi.GoogleBookActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         
         <activity
             android:name="com.csun.bookboi.ConsoleTestingActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         
@@ -81,6 +91,15 @@
             android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
+        
+          
+        <activity
+            android:name="com.csun.bookboi.BuyListingActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
+        
+          
  
         
     </application>

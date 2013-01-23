@@ -102,7 +102,7 @@ public class BookItemAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		
-		if (isLastItem(index)) {
+		if (isLastItem(index) && !keepOnAppending.get()) {
 			holder.bookContentLayout.setVisibility(View.GONE);
 			holder.progressBar.setVisibility(View.VISIBLE);
 		} else {

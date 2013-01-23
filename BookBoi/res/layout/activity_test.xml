@@ -12,7 +12,6 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -85,6 +84,12 @@
             style="@style/SubmitButton"
             android:layout_width="match_parent"
             android:text="Sell" />
+         
+         <Button
+            android:id="@+id/activity_test_xml_button_listing"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Listing" />
     </LinearLayout>
 
 </ScrollView>

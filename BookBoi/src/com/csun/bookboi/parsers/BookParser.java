@@ -41,7 +41,6 @@ public class BookParser extends AbstractParser<Book> {
 		if (json.has("Cover")) {
 			obj.setCoverUrl(json.getString("Cover"));
 		}
-		
 		return obj;
 	}
 }

@@ -21,6 +21,7 @@ import com.csun.bookboi.utils.GoogleBookUtil;
 import com.csun.bookboi.utils.JSONUtil;
 import com.csun.bookboi.utils.Pair;
 import com.csun.bookboi.utils.RESTUtil;
+import com.csun.bookboi.utils.UiUtil;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -91,37 +92,55 @@ public class BuyActivity extends Activity {
 		scan.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startScan(1);
+				int dummy = 0;
+				startScan(dummy);
 			}
 		});
+	}
+	
+	private boolean isTaskAvailable() {
+        return ((task == null) || (task != null && task.getStatus() == AsyncTask.Status.FINISHED));
+	}
+	
+	private void tryLoadBook(Pair<String, List<NameValuePair>> extras) {
+		if (isTaskAvailable()) {
+			task = new LoadBookFromServerTask(extras);
+    		task.execute();
+    		bookItemAdapter.restartAppending();
+		}
 	}
 	
 	@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-        	if (requestCode == 1) {
-        		final Bundle bundle = data.getExtras();
-        		Toast.makeText(this, bundle.getString(ScanIntent.SCAN_RESULT), Toast.LENGTH_LONG).show();
-        	}
+        	final Bundle bundle = data.getExtras();
+        	String text = bundle.getString(ScanIntent.SCAN_RESULT);
+        	
+        	// test
+        	UiUtil.showText(this, text);
+        	
+			synchronized (this) {
+				clearBookList();
+				final Pair<String, List<NameValuePair>> extras = BookDatabaseHelper.buildSearchQuery(SearchOption.BY_ISBN, text);
+				tryLoadBook(extras);
+    		}
         }
     }
 	
 	 private void startScan(int code) {
-	        try {
-	            final Intent intent = new Intent(ScanIntent.INTENT_ACTION_SCAN);
-	            intent.putExtra(ScanIntent.INTENT_EXTRA_SCAN_MODE, ScanIntent.INTENT_EXTRA_PRODUCT_MODE);
-	            startActivityForResult(intent, code);
-	        } catch (ActivityNotFoundException e) {
-	            
-	        }
-	    }
+        try {
+            final Intent intent = new Intent(ScanIntent.INTENT_ACTION_SCAN);
+            intent.putExtra(ScanIntent.INTENT_EXTRA_SCAN_MODE, ScanIntent.INTENT_EXTRA_PRODUCT_MODE);
+            startActivityForResult(intent, code);
+        } catch (ActivityNotFoundException e) {
+            Log.e(DEBUG_TAG, "BuyActivity not found", e);
+        }
+    }
+
 	
 	private void setUpSearchButton() {
 		Button b = (Button) findViewById(R.id.activity_buy_XML_button_search);
-		final EditText e = (EditText) findViewById(R.id.activity_buy_XML_edit_text_searching_field);
-		// final Spinner s = (Spinner) findViewById(R.id.activity_buy_XML_spinner_search_option);
 		b.setOnClickListener(new OnClickListener() {
-			@SuppressLint("DefaultLocale")
 			@Override
 			public void onClick(View v) {
 				onSearchTask();
@@ -130,13 +149,14 @@ public class BuyActivity extends Activity {
 	}
 	
 	/*
-	 * From resource
+	 * Get the current selection of Spinner and convert
+	 * it to a SearchOption. 
 	 *  <string-array name="search_book_options">
-        <item>Title</item>
-        <item>Author</item>
-        <item>Course</item>
-        <item>ISBN</item>
-    	</string-array>
+     *  	<item>	Title	</item>
+     *   	<item>	Author	</item>
+     *   	<item>	Course	</item>
+     *   	<item>	ISBN	</item>
+     *	</string-array>
 	 */
 	private BookDatabaseHelper.SearchOption getCurrentSearchOption() {
 		Spinner spinner = (Spinner) findViewById(R.id.activity_buy_XML_spinner_search_option);
@@ -155,19 +175,13 @@ public class BuyActivity extends Activity {
 	}
 	
 	private void onSearchTask() {
-		final EditText et = (EditText) findViewById(R.id.activity_buy_XML_edit_text_searching_field);
-		if (!TextUtils.isEmpty(et.getText())) {
-			String extras = et.getText().toString().trim();
-			final Pair<String, List<NameValuePair>> post = BookDatabaseHelper.buildSearchQuery(getCurrentSearchOption(), extras);
-			if ((task == null) || (task != null && task.getStatus() == AsyncTask.Status.FINISHED)) {
-				synchronized (this) {
-					
-					clearBookList();
-					
-					// launch new task
-					task = new LoadBookFromServerTask(post.first(), post.second());
-					task.execute();
-				}
+		final EditText edit = (EditText) findViewById(R.id.activity_buy_XML_edit_text_searching_field);
+		if (!TextUtils.isEmpty(edit.getText())) {
+			String text = edit.getText().toString().trim();
+			final Pair<String, List<NameValuePair>> extras = BookDatabaseHelper.buildSearchQuery(getCurrentSearchOption(), text);
+			synchronized (this) {
+				clearBookList();
+				tryLoadBook(extras);
 			}
 		}
 	}
@@ -177,11 +191,11 @@ public class BuyActivity extends Activity {
 		bookItemAdapter = new BookItemAdapter(this, books);
 		bookListView = (ListView) findViewById(R.id.activity_buy_XML_list_view_book);
 		bookListView.setAdapter(bookItemAdapter);
-		handleOnScroll();
-		handleOnItemClick();
+		onScrollBookList();
+		onBookItemClick();
 	}
 	
-	private void handleOnScroll() {
+	private void onScrollBookList() {
 		isLoading = true;
 		bookListView.setOnScrollListener(new OnScrollListener() {
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -202,12 +216,31 @@ public class BuyActivity extends Activity {
 		});
 	}
 	
-	private void handleOnItemClick() {
+	private void onBookItemClick() {
 		bookListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
+				Intent intent = new Intent(BuyActivity.this.getApplicationContext(), BuyListingActivity.class);
+				/*
+				intent.putExtra("book", 
+						Book.makeBook(
+							books.get(position).getId(), 
+							books.get(position).getTitle(), 
+							books.get(position).getAuthor(), 
+							books.get(position).getCourse(), 
+							books.get(position).getSection(), 
+							books.get(position).getPrice(), 
+							books.get(position).getIsbn(), 
+							books.get(position).getEdition(), 
+							books.get(position).getCoverUrl()));
+				*/
+				intent.putExtra("book", books.get(position).makeCopy());
+				BuyActivity.this.startActivity(intent);
 			}
 		});
+	}
+	
+	private void onBuyListingTask() {
+		
 	}
 	
 	private synchronized void updateBookList(Book b) {
@@ -222,11 +255,11 @@ public class BuyActivity extends Activity {
 	
 	private class LoadBookFromServerTask extends AsyncTask<Void, Book, Boolean> {
 		private String url;
-		private List<NameValuePair> extras;
+		private List<NameValuePair> post;
 		
-		public LoadBookFromServerTask(String url, List<NameValuePair> extras) {
-			this.url = url;
-			this.extras = extras;
+		public LoadBookFromServerTask(Pair<String, List<NameValuePair>> extras) {
+			this.url = extras.first();
+			this.post = extras.second();
 		}
 		
 		@Override
@@ -241,7 +274,8 @@ public class BuyActivity extends Activity {
 
 
 		protected void onPostExecute(Boolean result) {
-			isLoading = false;
+			bookItemAdapter.stopAppending();
+			bookItemAdapter.notifyDataSetChanged();
 		}
 
 		@Override
@@ -249,7 +283,7 @@ public class BuyActivity extends Activity {
 			InputStream input = null;
 			// get stream from network
 			if (!isCancelled()) {
-				input = RESTUtil.post(url, extras);
+				input = RESTUtil.post(url, post);
 			}
 			
 			// build JSON array
@@ -265,7 +299,7 @@ public class BuyActivity extends Activity {
 						if (!isCancelled()) {
 							try {
 								Book b = new BookParser().parse(array.getJSONObject(i));
-								//b.setCoverUrl(getBookCoverUrlFromGoogle(b.getIsbn()));
+								b.setCoverUrl(getBookCoverUrlFromGoogle(b.getIsbn()));
 								publishProgress(b);
 							}
 							catch (JSONException e) {
@@ -285,4 +319,12 @@ public class BuyActivity extends Activity {
 			return true;
 		}
 	}	
+	
+	private String getBookCoverUrlFromGoogle(String isbn) throws JSONException {
+		String formatISBN = isbn.substring(0, 3) + isbn.substring(4);
+		formatISBN = formatISBN.substring(0, 13);
+		InputStream in = RESTUtil.get(GoogleBookUtil.buildSearchQueryFromISBN(formatISBN));
+		JSONObject json = JSONUtil.buildObject(in);
+		return GoogleBookUtil.parseBookCoverUrl(json);
+	}
 }

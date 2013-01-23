@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aluminum6"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#b8b9c8" >
+
+        <ImageView
+            android:id="@+id/activity_buy_listing_XML_image_view_book_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="14dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_main_menu_friends" />
+
+        <TextView
+            android:id="@+id/activity_buy_listing_XML_text_view_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/activity_buy_listing_XML_text_view_book_author"
+            android:layout_marginRight="36dp"
+            android:textColor="@color/green"
+            android:text="Course" />
+
+        <TextView
+            android:id="@+id/activity_buy_listing_XML_text_view_book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/activity_buy_listing_XML_image_view_book_cover"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/activity_buy_listing_XML_image_view_book_cover"
+            android:singleLine="true"
+            android:text="Title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_buy_listing_XML_text_view_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/activity_buy_listing_XML_text_view_book_title"
+            android:layout_below="@+id/activity_buy_listing_XML_text_view_book_title"
+            android:text="Author"
+            android:textColor="#000000" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/activity_buy_listing_XML_list_view_listing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

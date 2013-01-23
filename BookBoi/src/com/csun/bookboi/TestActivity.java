@@ -1,6 +1,8 @@
 package com.csun.bookboi;
 
 
+import com.csun.bookboi.types.Listing;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -85,6 +87,12 @@ public class TestActivity extends Activity {
 		findViewById(R.id.activity_test_xml_button_sell).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getApplicationContext(), SellActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_listing).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), BuyListingActivity.class));
 			}
 		});
 	}

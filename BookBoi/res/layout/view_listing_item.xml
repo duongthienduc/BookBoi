@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/view_listing_item_XML_layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF" >
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/view_listing_item_XML_seller_tag"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:text="$122.99"
+            android:textColor="@color/red5"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_shipping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/view_listing_item_XML_rating_tag"
+            android:layout_below="@+id/view_listing_item_XML_price"
+            android:text="+ $3.99 shipping"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#76766e"
+            android:textSize="8dp" />
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/view_listing_item_XML_rating_tag"
+            android:layout_marginLeft="18dp"
+            android:layout_toRightOf="@+id/view_listing_item_XML_price"
+            android:text="100 ratings"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#cfb52b" />
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/view_listing_item_XML_rating_tag"
+            android:layout_alignLeft="@+id/view_listing_item_XML_rating"
+            android:text="Username"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/darkGreen"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_rating_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/view_listing_item_XML_seller_tag"
+            android:layout_below="@+id/view_listing_item_XML_seller_tag"
+            android:layout_marginTop="16dp"
+            android:text="Seller Rating: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#76766e" />
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_seller_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/view_listing_item_XML_rating_bar"
+            android:layout_below="@+id/view_listing_item_XML_shipping"
+            android:layout_marginTop="14dp"
+            android:text="Seller: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#76766e" />
+
+        <RatingBar
+            android:id="@+id/view_listing_item_XML_rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_listing_item_XML_rating"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:id="@+id/view_listing_item_XML_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/view_listing_item_XML_price"
+            android:layout_alignBottom="@+id/view_listing_item_XML_price"
+            android:layout_alignRight="@+id/view_listing_item_XML_rating_bar"
+            android:layout_marginRight="39dp"
+            android:text="New/Used"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/candidate_normal"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_listing_item_XML_spinner_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ProgressBar
+            android:id="@+id/view_listing_item_XML_progress_bar_spinner"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

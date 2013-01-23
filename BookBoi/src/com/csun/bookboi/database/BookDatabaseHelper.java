@@ -68,9 +68,9 @@ public class BookDatabaseHelper {
 	}
 	
 	public static Pair<String, List<NameValuePair>> buildSearchQuery(SearchOption opt, String extras) {
-		List<NameValuePair> al = new ArrayList<NameValuePair>();
-		al.add(new BasicNameValuePair("search_by", opt.getSearchOptionString()));
-		al.add(new BasicNameValuePair("search_query", extras));
-		return PairFactory.makePair(URL_SEARCH, al);
+		List<NameValuePair> p = new ArrayList<NameValuePair>();
+		p.add(new BasicNameValuePair("search_by", opt.getSearchOptionString()));
+		p.add(new BasicNameValuePair("search_query", extras));
+		return PairFactory.makePair(URL_SEARCH, p);
 	}
 }
