@@ -12,20 +12,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.csun.bookboi.adapter.BookItemAdapter;
+import com.csun.bookboi.database.BookDatabaseHelper;
+import com.csun.bookboi.database.BookDatabaseHelper.SearchOption;
 import com.csun.bookboi.parsers.BookParser;
+import com.csun.bookboi.scan.ScanIntent;
 import com.csun.bookboi.types.Book;
 import com.csun.bookboi.utils.GoogleBookUtil;
 import com.csun.bookboi.utils.JSONUtil;
+import com.csun.bookboi.utils.Pair;
 import com.csun.bookboi.utils.RESTUtil;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,25 +57,64 @@ import android.widget.Toast;
  *
  */
 public class BuyActivity extends Activity {
-	private static final String DEBUG_TAG = "BuyActivity";
-	private final String SEARCH_BOOKS_URL = "http://bookboi.com/chan/get_book_search_result.php";
+	private static final String DEBUG_TAG = BuyActivity.class.getSimpleName();
 	
 	private ListView bookListView;
 	private List<Book> books;
 	private BookItemAdapter bookItemAdapter;
 	private volatile boolean isLoading;
 	private LoadBookFromServerTask task = null;
-	private String searchBy;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_buy);
-		
+		setUpViews();
+	}
+	
+	private void setUpViews() {
 		setUpBookOptionsSpinner();
 		setUpListView();
 		setUpSearchButton();
+		setUpScanButton();
 	}
+	
+	private void setUpBookOptionsSpinner() {
+		Spinner spinner = (Spinner) findViewById(R.id.activity_buy_XML_spinner_search_option);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.search_book_options, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(adapter);
+	}
+	
+	private void setUpScanButton() {
+		Button scan = (Button) findViewById(R.id.activity_buy_XML_button_scan);
+		scan.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startScan(1);
+			}
+		});
+	}
+	
+	@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+        	if (requestCode == 1) {
+        		final Bundle bundle = data.getExtras();
+        		Toast.makeText(this, bundle.getString(ScanIntent.SCAN_RESULT), Toast.LENGTH_LONG).show();
+        	}
+        }
+    }
+	
+	 private void startScan(int code) {
+	        try {
+	            final Intent intent = new Intent(ScanIntent.INTENT_ACTION_SCAN);
+	            intent.putExtra(ScanIntent.INTENT_EXTRA_SCAN_MODE, ScanIntent.INTENT_EXTRA_PRODUCT_MODE);
+	            startActivityForResult(intent, code);
+	        } catch (ActivityNotFoundException e) {
+	            
+	        }
+	    }
 	
 	private void setUpSearchButton() {
 		Button b = (Button) findViewById(R.id.activity_buy_XML_button_search);
@@ -79,28 +124,52 @@ public class BuyActivity extends Activity {
 			@SuppressLint("DefaultLocale")
 			@Override
 			public void onClick(View v) {
-				String searchText = e.getText().toString();
-				List<NameValuePair> criteria = new ArrayList<NameValuePair>();
-				searchText = searchText.toLowerCase(Locale.ENGLISH);
-				searchBy = searchBy.toLowerCase(Locale.ENGLISH);
-				Toast.makeText(BuyActivity.this, searchText + searchBy, Toast.LENGTH_LONG).show();
-				criteria.add(new BasicNameValuePair("search_by", searchBy));
-				criteria.add(new BasicNameValuePair("search_text", searchText));
-				if (task != null && (task.getStatus() == AsyncTask.Status.PENDING || task.getStatus() == AsyncTask.Status.FINISHED)) {
-					synchronized (this) {
-						books.clear();
-						bookItemAdapter.notifyDataSetChanged();
-						task = new LoadBookFromServerTask(criteria);
-						task.execute(SEARCH_BOOKS_URL);
-						Toast.makeText(BuyActivity.this, "WTF", Toast.LENGTH_LONG).show();
-						Log.v(DEBUG_TAG, "run task????");
-					}
-				} else {
-						task = new LoadBookFromServerTask(criteria);
-						task.execute(SEARCH_BOOKS_URL);
-				}
+				onSearchTask();
 			}
 		});
+	}
+	
+	/*
+	 * From resource
+	 *  <string-array name="search_book_options">
+        <item>Title</item>
+        <item>Author</item>
+        <item>Course</item>
+        <item>ISBN</item>
+    	</string-array>
+	 */
+	private BookDatabaseHelper.SearchOption getCurrentSearchOption() {
+		Spinner spinner = (Spinner) findViewById(R.id.activity_buy_XML_spinner_search_option);
+		if (spinner.getSelectedItem().toString().equals("Title")) {
+			return SearchOption.BY_TITLE;
+		}
+		else if (spinner.getSelectedItem().toString().equals("Author")) {
+			return SearchOption.BY_AUTHOR;
+		}
+		else if (spinner.getSelectedItem().toString().equals("Course")) {
+			return SearchOption.BY_COURSE;
+		}
+		else { // if (spinner.getSelectedItem().toString().equals("ISBN")) 
+			return SearchOption.BY_ISBN;
+		}
+	}
+	
+	private void onSearchTask() {
+		final EditText et = (EditText) findViewById(R.id.activity_buy_XML_edit_text_searching_field);
+		if (!TextUtils.isEmpty(et.getText())) {
+			String extras = et.getText().toString().trim();
+			final Pair<String, List<NameValuePair>> post = BookDatabaseHelper.buildSearchQuery(getCurrentSearchOption(), extras);
+			if ((task == null) || (task != null && task.getStatus() == AsyncTask.Status.FINISHED)) {
+				synchronized (this) {
+					
+					clearBookList();
+					
+					// launch new task
+					task = new LoadBookFromServerTask(post.first(), post.second());
+					task.execute();
+				}
+			}
+		}
 	}
 	
 	private void setUpListView() {
@@ -141,35 +210,23 @@ public class BuyActivity extends Activity {
 		});
 	}
 	
-	private void setUpBookOptionsSpinner() {
-		Spinner spinner = (Spinner) findViewById(R.id.activity_buy_XML_spinner_search_option);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.search_book_options, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				String item = (String) parent.getItemAtPosition(position);
-				searchBy = item;
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// empty body
-			}
-		});
+	private synchronized void updateBookList(Book b) {
+		books.add(b);
+		bookItemAdapter.notifyDataSetChanged();		
 	}
 	
-	private void updateBookList(Book b) {
-		books.add(b);
+	private synchronized void clearBookList() {
+		books.clear();
 		bookItemAdapter.notifyDataSetChanged();
 	}
 	
-	private class LoadBookFromServerTask extends AsyncTask<String, Book, Boolean> {
-		private List<NameValuePair> criteria;
+	private class LoadBookFromServerTask extends AsyncTask<Void, Book, Boolean> {
+		private String url;
+		private List<NameValuePair> extras;
 		
-		public LoadBookFromServerTask(List<NameValuePair> criteria) {
-			this.criteria = criteria;
+		public LoadBookFromServerTask(String url, List<NameValuePair> extras) {
+			this.url = url;
+			this.extras = extras;
 		}
 		
 		@Override
@@ -188,11 +245,11 @@ public class BuyActivity extends Activity {
 		}
 
 		@Override
-		protected Boolean doInBackground(String... params) {
+		protected Boolean doInBackground(Void... params) {
 			InputStream input = null;
 			// get stream from network
 			if (!isCancelled()) {
-				input = RESTUtil.post(params[0], criteria);
+				input = RESTUtil.post(url, extras);
 			}
 			
 			// build JSON array
@@ -226,14 +283,6 @@ public class BuyActivity extends Activity {
 				}
 			}
 			return true;
-		}
-		
-		private String getBookCoverUrlFromGoogle(String isbn) throws JSONException {
-			String formatISBN = isbn.substring(0, 3) + isbn.substring(4);
-			formatISBN = formatISBN.substring(0, 13);
-			InputStream in = RESTUtil.get(GoogleBookUtil.buildSearchQueryFromISBN(formatISBN));
-			JSONObject json = JSONUtil.buildObject(in);
-			return GoogleBookUtil.parseBookCoverUrl(json);
 		}
 	}	
 }

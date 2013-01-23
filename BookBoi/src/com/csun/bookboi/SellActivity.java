@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,7 +52,7 @@ import android.widget.Toast;
  *
  */
 public class SellActivity extends Activity {
-	private static final String DEBUG_TAG = "BuyActivity";
+	private static final String DEBUG_TAG = SellActivity.class.getSimpleName();
 	private final String SEARCH_BOOKS_URL = "http://bookboi.com/chan/get_book_search_result.php";
 	
 	private ListView bookListView;
@@ -69,6 +70,8 @@ public class SellActivity extends Activity {
 		setUpBookOptionsSpinner();
 		setUpListView();
 		setUpSearchButton();
+		
+		Handler handler = new Handler();
 	}
 	
 	private void setUpSearchButton() {

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class EmailActivity extends Activity {
+	private static final String DEBUG_TAG = EmailActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

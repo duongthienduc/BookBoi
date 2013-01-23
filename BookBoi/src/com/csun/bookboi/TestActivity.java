@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
  * @author chan
  */
 public class TestActivity extends Activity {
-	private static final String DEBUG_TAG = "TestActivity";
+	private static final String DEBUG_TAG = TestActivity.class.getSimpleName();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

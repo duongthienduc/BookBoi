@@ -17,7 +17,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 public class GoogleBookActivity extends Activity {
-	private static final String DEBUG_TAG = "GoogleBookActivity";
+	private static final String DEBUG_TAG = GoogleBookActivity.class.getSimpleName();
 	private ImageLoaderSlow loader;
 	
 	@Override 

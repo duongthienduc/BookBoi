@@ -16,7 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class CheckOutActivity extends Activity {
-	private static final String DEBUG_TAG = "CheckOutActivity";
+	private static final String DEBUG_TAG = CheckOutActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

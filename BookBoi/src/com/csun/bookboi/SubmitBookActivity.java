@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 public class SubmitBookActivity extends Activity {
-	public static final String TAG = "BookStoreActivity";
+	private static final String DEBUG_TAG = SubmitBookActivity.class.getSimpleName();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

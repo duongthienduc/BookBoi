@@ -36,7 +36,7 @@ import android.widget.EditText;
  * @author chan
  */
 public class LogInActivity extends Activity {
-	private final String DEBUG_TAG = "MainActivity";
+	private static final String DEBUG_TAG = LogInActivity.class.getSimpleName();
 	private final String LOGIN_URL = "http://bookboi.com/chan/login.php";
 
 	private final int DIALOG_LOGIN_ERROR = 0;

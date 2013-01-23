@@ -31,7 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SubmitListingActivity extends Activity {
-	private static final String DEBUG_TAG = "SubmitListingActivity";
+	private static final String DEBUG_TAG = SubmitListingActivity.class.getSimpleName();
 	private static final String SUBMIT_BOOK_URL = "http://bookboi.com/chan/post_listing.php";
 	private ImageLoader imageLoader;
 	private Book book;

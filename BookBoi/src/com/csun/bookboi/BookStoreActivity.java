@@ -39,7 +39,7 @@ import android.widget.ListView;
  * @author chan
  */
 public class BookStoreActivity extends Activity {
-	private static final String DEBUG_TAG = "BookStoreActivity";
+	private static final String DEBUG_TAG = BookStoreActivity.class.getSimpleName();
 	private final String GET_BOOKS_URL = "http://bookboi.com/chan/get_all_cs_books.php";
 	
 	private ListView bookListView;
