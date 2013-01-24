@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.csun.bookboi.utils.JSONUtil;
+import com.csun.bookboi.utils.NetworktUtil;
 import com.csun.bookboi.utils.RESTUtil;
 
 import android.net.ConnectivityManager;
@@ -35,7 +36,7 @@ import android.widget.EditText;
  * Login Screen
  * @author chan
  */
-public class LogInActivity extends Activity {
+public class LogInActivity extends BookBoiBaseActivity {
 	private static final String DEBUG_TAG = LogInActivity.class.getSimpleName();
 	private final String LOGIN_URL = "http://bookboi.com/chan/login.php";
 
@@ -59,7 +60,7 @@ public class LogInActivity extends Activity {
 	}
 
 	private void prepareLogin() {
-		if (isNetworkAvailableAndConnected()) {
+		if (NetworktUtil.haveNetworkConnection(LogInActivity.this)) {
 			findViewById(R.id.activity_login_XML_button_login).setOnClickListener(
 				new OnClickListener() {
 					public void onClick(View v) {
@@ -135,19 +136,6 @@ public class LogInActivity extends Activity {
 		}
 	}
 
-	private boolean isNetworkAvailableAndConnected() {
-		ConnectivityManager conManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo networkInfo = conManager.getActiveNetworkInfo();
-		if (networkInfo == null) {
-			return false;
-		} else if (!networkInfo.isConnected()) {
-			return false;
-		} else if (!networkInfo.isAvailable()) {
-			return false;
-		}
-		return true;
-	}
-	
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {

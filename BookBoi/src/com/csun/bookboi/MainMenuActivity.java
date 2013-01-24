@@ -22,7 +22,7 @@ public class MainMenuActivity extends Activity {
 		sell.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+				startActivity(new Intent(getApplicationContext(), BuyActivity.class));
 			}
 		});
 	}
@@ -32,7 +32,7 @@ public class MainMenuActivity extends Activity {
 		buy.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), BuyActivity.class));
+				startActivity(new Intent(getApplicationContext(), SellActivity.class));
 			}
 		});
 	}

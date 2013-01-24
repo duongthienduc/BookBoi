@@ -27,7 +27,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/activity_buy_listing_XML_text_view_book_author"
             android:layout_marginRight="36dp"
-            android:textColor="@color/green"
+            android:textColor="#8edcff"
             android:text="Course" />
 
         <TextView

@@ -56,40 +56,10 @@
             android:text="Email" />
 
         <Button
-            android:id="@+id/activity_test_xml_button_checkout"
-            style="@style/SubmitButton"
-            android:layout_width="match_parent"
-            android:text="CheckOut" />
-
-        <Button
-            android:id="@+id/activity_test_xml_button_google"
-            style="@style/SubmitButton"
-            android:layout_width="match_parent"
-            android:text="Google" />
-        
-        <Button
             android:id="@+id/activity_test_xml_button_console"
             style="@style/SubmitButton"
             android:layout_width="match_parent"
             android:text="Console" />
-        
-         <Button
-            android:id="@+id/activity_test_xml_button_buy"
-            style="@style/SubmitButton"
-            android:layout_width="match_parent"
-            android:text="Buy" />
-         
-         <Button
-            android:id="@+id/activity_test_xml_button_sell"
-            style="@style/SubmitButton"
-            android:layout_width="match_parent"
-            android:text="Sell" />
-         
-         <Button
-            android:id="@+id/activity_test_xml_button_listing"
-            style="@style/SubmitButton"
-            android:layout_width="match_parent"
-            android:text="Listing" />
     </LinearLayout>
 
 </ScrollView>

@@ -9,13 +9,13 @@
         android:targetSdkVersion="9" />
 
     <application
-        android:allowBackup="true"
+        android:name="com.csun.bookboi.BookBoiApplication"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
             android:name="com.csun.bookboi.TestActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,33 +24,33 @@
         </activity>
         <activity
             android:name="com.csun.bookboi.LogInActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.csun.bookboi.SubmitBookActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.csun.bookboi.MainMenuActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.csun.bookboi.SignUpActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.csun.bookboi.BookStoreActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.csun.bookboi.EmailActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.csun.bookboi.prototype.EmailActivity" />
 
@@ -59,49 +59,50 @@
         </activity>
         <activity
             android:name="com.csun.bookboi.CheckOutActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="com.csun.bookboi.GoogleBookActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
-        </activity>
-        
+       
         <activity
             android:name="com.csun.bookboi.ConsoleTestingActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.csun.bookboi.BookSearchActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.csun.bookboi.SellActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         
          <activity
             android:name="com.csun.bookboi.BuyActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         
         <activity
-            android:name="com.csun.bookboi.SellActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
-        </activity>
-        
-          <activity
             android:name="com.csun.bookboi.SubmitListingActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
-          
         <activity
             android:name="com.csun.bookboi.BuyListingActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
-          
- 
-        
+
+        <receiver
+            android:name="com.csun.bookboi.receivers.ConnectionChangeReceiver"
+            android:label="NetworkConnection" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

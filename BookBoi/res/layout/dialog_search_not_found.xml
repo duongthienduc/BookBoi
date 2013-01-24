@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/aluminum6"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dialog_search_not_found_XML_textview_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/dialog_search_not_found_XML_imageview_not_found_icon"
+        android:layout_toRightOf="@+id/dialog_search_not_found_XML_imageview_not_found_icon"
+        android:padding="10dp"
+        android:text="Not found" />
+
+    <ImageView
+        android:id="@+id/dialog_search_not_found_XML_imageview_not_found_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/mission_ask_question" />
+
+    <Button
+        android:id="@+id/dialog_search_not_found_XML_button_ok"
+        style="@style/error_button"
+        android:layout_alignLeft="@+id/dialog_search_not_found_XML_textview_msg"
+        android:layout_below="@+id/dialog_search_not_found_XML_imageview_not_found_icon"
+        android:layout_marginLeft="40dp"
+        android:text="OK" />
+
+</RelativeLayout>

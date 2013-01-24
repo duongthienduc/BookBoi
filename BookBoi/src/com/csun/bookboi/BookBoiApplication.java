@@ -12,7 +12,6 @@ public class BookBoiApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-
 		// This configuration tuning is custom. You can tune every option, you
 		// may tune some of them,
 		// or you can create default configuration by
@@ -25,12 +24,8 @@ public class BookBoiApplication extends Application {
 				.denyCacheImageMultipleSizesInMemory()
 				.discCacheFileNameGenerator(new Md5FileNameGenerator())
 				.imageDownloader(new ExtendedImageDownloader(getApplicationContext()))
-				.tasksProcessingOrder(QueueProcessingType.LIFO).enableLogging() // Not
-																				// necessary
-																				// in
-																				// common
+				.tasksProcessingOrder(QueueProcessingType.LIFO).enableLogging() 
 				.build();
-		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);
 	}
 }

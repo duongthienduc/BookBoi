@@ -3,7 +3,7 @@ package com.csun.bookboi;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class SubmitBookActivity extends Activity {
+public class SubmitBookActivity extends BookBoiBaseActivity {
 	private static final String DEBUG_TAG = SubmitBookActivity.class.getSimpleName();
 	
 	@Override
