@@ -30,21 +30,9 @@ public class TestActivity extends Activity {
 			}
 		});
 		
-		findViewById(R.id.activity_test_xml_button_main_menu).setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
-			}
-		});
-		
 		findViewById(R.id.activity_test_xml_button_submit_book).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getApplicationContext(), SubmitBookActivity.class));
-			}
-		});
-		
-		findViewById(R.id.activity_test_xml_button_signup).setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
 			}
 		});
 		

@@ -164,7 +164,7 @@
     <style name="LoginScreenButton.SignUp">
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">80dp</item>
-        <item name="android:layout_marginBottom">7dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
         <item name="android:layout_alignBottom">@id/activity_login_XML_tagline</item>  
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:background">@drawable/button_pink</item>

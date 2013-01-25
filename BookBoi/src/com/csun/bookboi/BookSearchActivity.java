@@ -38,6 +38,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -48,6 +51,7 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -64,6 +68,7 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	private static final String DEBUG_TAG = BookSearchActivity.class.getSimpleName();
 	
 	private ListView bookListView;
+	private GridView bookGridView;
 	private List<Book> books;
 	private BookItemAdapter bookItemAdapter;
 	private volatile boolean isLoading;
@@ -74,7 +79,8 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_buy);
+		setContentView(R.layout.activity_search_book);
+		books = new ArrayList<Book>();
 		setUpViews();
 	}
 	
@@ -83,6 +89,7 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	 */
 	private void setUpViews() {
 		setUpBookOptionsSpinner();
+		setUpGridView();
 		setUpListView();
 		setUpSearchButton();
 		setUpScanButton();
@@ -131,8 +138,7 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	 * both onScroll & onItemClick event
 	 */
 	private void setUpListView() {
-		books = new ArrayList<Book>();
-		bookItemAdapter = new BookItemAdapter(this, books);
+		bookItemAdapter = new BookItemAdapter(this, books, BookItemAdapter.ViewType.LIST_VIEW);
 		bookListView = (ListView) findViewById(R.id.activity_buy_XML_list_view_book);
 		bookListView.setAdapter(bookItemAdapter);
 		isLoading = true;
@@ -160,6 +166,16 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 				launchActivity(books.get(position).makeCopy());
 			}
 		});
+	}
+	
+	/**
+	 * Set up list view and hook up
+	 * both onScroll & onItemClick event
+	 */
+	private void setUpGridView() {
+		bookItemAdapter = new BookItemAdapter(this, books, BookItemAdapter.ViewType.GRID_VIEW);
+		bookGridView = (GridView) findViewById(R.id.activity_buy_XML_grid_view_book);
+		bookGridView.setAdapter(bookItemAdapter);
 	}
 	
 	/**
@@ -371,7 +387,6 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	private String getBookCoverUrlFromGoogle(String isbn) throws JSONException {
 		InputStream in = RESTUtil.get(GoogleBookUtil.buildSearchQueryFromISBN(isbn));
 		isbn = isbn.substring(0, 13);
-		isbn = isbn.trim();
 		JSONObject json = JSONUtil.buildObject(in);
 		return GoogleBookUtil.parseBookCoverUrl(json);
 	}
@@ -381,4 +396,33 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
         NotFoundDialog d = new NotFoundDialog();
         d.show(fm, "Disconnected");
     }
+	
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu_search, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.listview:
+	        	bookItemAdapter.setCurrentViewType(BookItemAdapter.ViewType.LIST_VIEW);
+	        	bookListView.setVisibility(View.VISIBLE);
+	        	bookGridView.setVisibility(View.GONE);
+	            return true;
+	            
+	        case R.id.gridview:
+	        	bookItemAdapter.setCurrentViewType(BookItemAdapter.ViewType.GRID_VIEW);
+	        	bookListView.setVisibility(View.GONE);
+	        	bookGridView.setVisibility(View.VISIBLE);
+	            return true;
+	            
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 }

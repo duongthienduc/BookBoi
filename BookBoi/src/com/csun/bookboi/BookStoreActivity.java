@@ -68,7 +68,7 @@ public class BookStoreActivity extends Activity {
 	
 	private void setUpListView() {
 		books = new ArrayList<Book>();
-		bookItemAdapter = new BookItemAdapter(this, books);
+		bookItemAdapter = new BookItemAdapter(this, books, BookItemAdapter.ViewType.LIST_VIEW);
 		bookListView = (ListView) findViewById(R.id.activity_book_store_XML_list_view);
 		bookListView.setAdapter(bookItemAdapter);
 		handleOnScroll();
@@ -104,17 +104,6 @@ public class BookStoreActivity extends Activity {
 		});
 	}
 
-	private Book getRandomBook() {
-		Book b = new Book();
-		b.setTitle("Pro Android 3");
-		b.setAuthor("Chan Nguyen");
-		b.setEdition("Edition 3");
-		b.setCourse("COMP 449");
-		b.setPrice(99.99);
-		b.setSection("12345");
-		return b;
-	}
-	
 	private void updateBookList(Book b) {
 		books.add(b);
 		bookItemAdapter.notifyDataSetChanged();
@@ -183,9 +172,8 @@ public class BookStoreActivity extends Activity {
 		}
 		
 		private String getBookCoverUrlFromGoogle(String isbn) throws JSONException {
-			String formatISBN = isbn.substring(0, 3) + isbn.substring(4);
-			formatISBN = formatISBN.substring(0, 13);
-			InputStream in = RESTUtil.get(GoogleBookUtil.buildSearchQueryFromISBN(formatISBN));
+			InputStream in = RESTUtil.get(GoogleBookUtil.buildSearchQueryFromISBN(isbn));
+			isbn = isbn.substring(0, 13);
 			JSONObject json = JSONUtil.buildObject(in);
 			return GoogleBookUtil.parseBookCoverUrl(json);
 		}

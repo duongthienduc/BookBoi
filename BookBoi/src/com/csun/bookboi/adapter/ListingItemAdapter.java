@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,13 +58,11 @@ public class ListingItemAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.view_listing_item, parent, false);
 			holder = new ViewHolder();
-			holder.seller = (TextView) convertView.findViewById(R.id.view_listing_item_XML_seller);
+			holder.seller = (TextView) convertView.findViewById(R.id.view_listing_item_XML_textview_seller);
 			holder.price = (TextView) convertView.findViewById(R.id.view_listing_item_XML_price);
 			holder.condition = (TextView) convertView.findViewById(R.id.view_listing_item_XML_condition);
-			holder.rating = (TextView) convertView.findViewById(R.id.view_listing_item_XML_rating);
-			holder.ratingBar = (RatingBar) convertView.findViewById(R.id.view_listing_item_XML_rating_bar);
+			holder.rating = (TextView) convertView.findViewById(R.id.view_listing_item_XML_textview_rating);
 			holder.progress = (ProgressBar) convertView.findViewById(R.id.view_listing_item_XML_progress_bar_spinner);
-			holder.progressLayout = (RelativeLayout) convertView.findViewById(R.id.view_listing_item_XML_spinner_layout);
 			holder.contentLayout = (RelativeLayout) convertView.findViewById(R.id.view_listing_item_XML_layout_content);
 			convertView.setTag(holder);
 		} else {
@@ -86,7 +85,6 @@ public class ListingItemAdapter extends BaseAdapter {
 		holder.price.setText("$" + l.getPrice());
 		holder.condition.setText(l.getCondition());
 		holder.rating.setText("100,000 ratings");
-		holder.ratingBar.setRating(88.0f);
 	}
 	
 	boolean isLastItem(int index) {

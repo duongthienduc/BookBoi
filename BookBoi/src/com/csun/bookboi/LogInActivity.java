@@ -9,6 +9,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.csun.bookboi.database.UserDatabaseHelper;
+import com.csun.bookboi.dialogs.NetworkErrorDialog;
+import com.csun.bookboi.services.SingletonUser;
+import com.csun.bookboi.utils.Pair;
 import com.csun.bookboi.utils.JSONUtil;
 import com.csun.bookboi.utils.NetworktUtil;
 import com.csun.bookboi.utils.RESTUtil;
@@ -25,11 +29,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 
 /**
@@ -38,59 +44,83 @@ import android.widget.EditText;
  */
 public class LogInActivity extends BookBoiBaseActivity {
 	private static final String DEBUG_TAG = LogInActivity.class.getSimpleName();
-	private final String LOGIN_URL = "http://bookboi.com/chan/login.php";
-
-	private final int DIALOG_LOGIN_ERROR = 0;
-	private final int DIALOG_NETWORK_ERROR = 1;
 	
-	private EditText mUserEditText;
-	private EditText mPasswordEditText;
+	private String activeUsername;
+	private String activePassword;
+	private LogInTask task = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		setUpUi();
 		prepareLogin();
+		prepareSignUp();
 	}
-
-	private void setUpUi() {
-		mUserEditText = (EditText) findViewById(R.id.activity_login_XML_edittext_email_id);
-		mPasswordEditText = (EditText) findViewById(R.id.activity_login_XML_edittext_password_id);
+	
+	private void prepareSignUp() {
+		Button signup = (Button) findViewById(R.id.activity_login_XML_button_signup);
+		signup.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LogInActivity.this.getApplicationContext(), SignUpActivity.class));
+			}
+		});
 	}
 
 	private void prepareLogin() {
+		Button login = (Button) findViewById(R.id.activity_login_XML_button_login);
 		if (NetworktUtil.haveNetworkConnection(LogInActivity.this)) {
-			findViewById(R.id.activity_login_XML_button_login).setOnClickListener(
+			login.setOnClickListener(
 				new OnClickListener() {
 					public void onClick(View v) {
 						onPerformLogin();
 					}
 			});
 		} else {
-			// TODO: Use DialogFragment
-			showDialog(DIALOG_NETWORK_ERROR);
+			showNetworkErrorDialog(new Throwable());
 		}
 	}
-
+	
+	/**
+	 * Make sure the current task is not running 
+	 * @return
+	 * 			true if either the task have 
+	 * 			not started or already finished
+	 */
+	private boolean haveTaskAvailable() {
+        return ((task == null) || (task != null && task.getStatus() == AsyncTask.Status.FINISHED));
+	}
+	
 	private void onPerformLogin() {
-		if (!TextUtils.isEmpty(mUserEditText.getText()) && !TextUtils.isEmpty(mPasswordEditText.getText())) {
-			String username = mUserEditText.getText().toString();
-			String password = mPasswordEditText.getText().toString();
-			List<NameValuePair> credential = new ArrayList<NameValuePair>();
-			credential.add(new BasicNameValuePair("username", username));
-			credential.add(new BasicNameValuePair("password", password));
-			new UserLogInTask(credential).execute(LOGIN_URL);
+		EditText usernameEdit = (EditText) findViewById(R.id.activity_login_XML_edittext_email_id);
+		EditText passwordEdit = (EditText) findViewById(R.id.activity_login_XML_edittext_password_id);
+		if (!TextUtils.isEmpty(usernameEdit.getText()) && !TextUtils.isEmpty(passwordEdit.getText())) {
+			String username = usernameEdit.getText().toString();
+			String password = passwordEdit.getText().toString();
+			
+			// TODO: parse a complete user from server. 
+			// This is dirty hack!
+			activeUsername = username;
+			activePassword = password;
+			
+			if (haveTaskAvailable()) {
+				// TODO: add logic for validate username/password
+				task = new LogInTask(UserDatabaseHelper.buildLogInQuery(username, password));
+				task.execute();
+			}
 		}
 	}
 
-	private class UserLogInTask extends AsyncTask<String, Void, InputStream> {
+	private class LogInTask extends AsyncTask<Void, Void, InputStream> {
+		private String url;
 		private List<NameValuePair> credential;
 		private final ProgressDialog progressDialog;
 
-		public UserLogInTask(List<NameValuePair> credential) {
-			this.credential = credential;
+		public LogInTask(Pair<String, List<NameValuePair>> extras) {
+			url = extras.first();
+			credential = extras.second();
 			progressDialog = new ProgressDialog(LogInActivity.this);
+			progressDialog.setMessage("Logging in...");
 			progressDialog.setCancelable(true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				public void onCancel(DialogInterface dialog) {
@@ -105,10 +135,10 @@ public class LogInActivity extends BookBoiBaseActivity {
 		}
 
 		@Override
-		protected InputStream doInBackground(String... params) {
+		protected InputStream doInBackground(Void... params) {
 			InputStream input = null;
 			if (!isCancelled()) {
-				input = RESTUtil.post(params[0], credential);
+				input = RESTUtil.post(url, credential);
 			}
 			return input;
 		}
@@ -124,46 +154,22 @@ public class LogInActivity extends BookBoiBaseActivity {
 						if (id != 0) {
 							LogInActivity.this.startActivity(new Intent(LogInActivity.this.getApplicationContext(), MainMenuActivity.class));
 							LogInActivity.this.finish();
+							SingletonUser.setActiveUser(id, activeUsername, activePassword);
 						}
 					} catch (JSONException e) {
 						Log.e(DEBUG_TAG, "Exception has occured while parsing JSON", e);
 					}
 				} else {
-					// TODO: Use DialogFragment
-					showDialog(DIALOG_LOGIN_ERROR);
+					showDialogLogInError();
 				}
 			}
 		}
 	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-			case DIALOG_LOGIN_ERROR:
-				return new 
-					AlertDialog.Builder(this)
-						.setIcon(R.drawable.error_circle)
-						.setTitle("Error Message")
-						.setMessage("Invalid Username/Password.\n Please try again.")
-						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
-								
-							}
-						}).create();
-			
-			case DIALOG_NETWORK_ERROR: 
-				return new 
-						AlertDialog.Builder(this)
-							.setIcon(R.drawable.error_circle)
-							.setTitle("Error network connection")
-							.setMessage("Please turn on your network connection and try again!")
-							.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int whichButton) {
-									
-								}
-							}).create();
-			}
-		return null;
+	
+	private void showDialogLogInError() {
+		FragmentManager fm = getSupportFragmentManager();
+	    NetworkErrorDialog d = new NetworkErrorDialog();
+	    d.show(fm, "Login Error");
 	}
 
 	/*

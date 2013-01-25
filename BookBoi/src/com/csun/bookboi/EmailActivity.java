@@ -1,7 +1,7 @@
 package com.csun.bookboi;
 
 import com.csun.bookboi.global.EmailConstants;
-import com.csun.bookboi.services.email.GMailSender;
+import com.csun.bookboi.services.GMailSender;
 
 import android.app.Activity;
 import android.content.Intent;

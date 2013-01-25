@@ -10,31 +10,48 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.csun.bookboi.database.ListingDatabaseHelper;
+import com.csun.bookboi.global.EmailConstants;
 import com.csun.bookboi.parsers.BookParser;
+import com.csun.bookboi.parsers.ServerResponseParser;
+import com.csun.bookboi.services.GMailSender;
+import com.csun.bookboi.services.SingletonUser;
 import com.csun.bookboi.types.Book;
 import com.csun.bookboi.types.Listing;
+import com.csun.bookboi.types.ServerResponse;
+import com.csun.bookboi.utils.Pair;
 import com.csun.bookboi.utils.JSONUtil;
 import com.csun.bookboi.utils.RESTUtil;
+import com.csun.bookboi.utils.ThreadUtil;
+import com.csun.bookboi.utils.UiUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnCancelListener;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SubmitListingActivity extends Activity {
+public class SubmitListingActivity extends BookBoiBaseActivity {
 	private static final String DEBUG_TAG = SubmitListingActivity.class.getSimpleName();
-	private static final String SUBMIT_BOOK_URL = "http://bookboi.com/chan/post_listing.php";
-	private ImageLoader imageLoader;
+	
 	private Book book;
+	private DisplayImageOptions options;
+	private SubmitListingTask task;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,86 +61,109 @@ public class SubmitListingActivity extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		book = (Book) bundle.getParcelable("book");
 		
-		Toast.makeText(this, Integer.toString(book.getId()), Toast.LENGTH_LONG).show();
+		options = new DisplayImageOptions.Builder()
+			.showImageForEmptyUri(R.drawable.ic_book)
+			.showStubImage(R.drawable.ic_launcher)
+			.cacheInMemory()
+			.cacheOnDisc()
+			.bitmapConfig(Bitmap.Config.RGB_565)
+			.build();
+		
 		setUpBookHeader(book);
 		setUpSubmitButton();
 	}
 	
 	private void setUpBookHeader(Book b) {
 		ImageView cover = (ImageView) findViewById(R.id.activity_submit_listing_XML_image_view_cover);
-		TextView title = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_title);
+		imageLoader.displayImage(b.getCoverUrl(), cover, options);
+		final TextView title = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_title);
 		title.setText(b.getTitle());
-		TextView author = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_author);
+		final TextView author = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_author);
 		author.setText(b.getAuthor());
-		TextView course = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_course);
+		final TextView course = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_course);
 		course.setText(b.getCourse());
+		final TextView isbn = (TextView) findViewById(R.id.activity_submit_listing_XML_text_view_isbn);
+		isbn.setText(b.getIsbn());
+		Animation animation = AnimationUtils.loadAnimation(SubmitListingActivity.this, R.anim.back_and_forth);
+		title.startAnimation(animation);
 	}
 
 	private void setUpSubmitButton() {
-		Button b = (Button) findViewById(R.id.activity_submit_listing_XML_button_submit);
+		Button b = (Button) findViewById(R.id.activity_submit_listing_XML_button);
+		final EditText p = (EditText) findViewById(R.id.activity_submit_listing_XML_edit_text_price);
+		final EditText c = (EditText) findViewById(R.id.activity_submit_listing_XML_edit_text_condition);
 		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new SubmitListingTask(prepareListingInfo(book)).execute(SUBMIT_BOOK_URL);
+				if (haveTaskAvailable(task)) {
+					task = new SubmitListingTask(ListingDatabaseHelper.buildPostQuery(
+						SingletonUser.getActiveUser().getId(),  // user id
+						book.getId(),                           // book id
+						p.getText().toString(),                 // price
+						c.getText().toString()));               // condition
+					task.execute();
+				}
 			}
 		});
 	}
 	
-	private List<NameValuePair> prepareListingInfo(Book b) {
-		EditText p = (EditText) findViewById(R.id.activity_submit_listing_XML_edit_text_price);
-		EditText c = (EditText) findViewById(R.id.activity_submit_listing_XML_edit_text_condition);
-		List<NameValuePair> info = new ArrayList<NameValuePair>();
-		info.add(new BasicNameValuePair("user_id", "5"));
-		info.add(new BasicNameValuePair("book_id", Integer.toString(b.getId())));
-		info.add(new BasicNameValuePair("price", p.getText().toString()));
-		info.add(new BasicNameValuePair("condition", c.getText().toString()));
-		return info;
-	}
-	
-	private class SubmitListingTask extends AsyncTask<String, Void, Boolean> {
-		private List<NameValuePair> listing;
+	private class SubmitListingTask extends AsyncTask<Void, Void, ServerResponse> {
+		private final String url;
+		private final List<NameValuePair> listing;
+		private final ProgressDialog pd;
 		
-		public SubmitListingTask(List<NameValuePair> listing) {
-			this.listing = listing;
+		public SubmitListingTask(Pair<String, List<NameValuePair>> extras) {
+			url = extras.first();
+			listing = extras.second();
+			pd = new ProgressDialog(SubmitListingActivity.this);
 		}
 		
 		@Override
-		protected Boolean doInBackground(String... params) {
-			InputStream input = null;
-			// get stream from network
-			if (!isCancelled()) {
-				input = RESTUtil.post(params[0], listing);
-			}
-			
-			// build JSON array
-			JSONObject json = null;
-			if (!isCancelled()) {
-				json = JSONUtil.buildObject(input);
-				if (json.has("result")) {
-					try {
-						String result = json.getString("result");
-						if (result.equals("success")) {
-							return true;
-						}
-					} catch (JSONException e) {
-						Log.e(DEBUG_TAG, "Exception occured while parsing JSON", e);
-					}
-					
+		protected void onPreExecute() {
+			pd.setMessage("Submitting in progress...");
+			pd.setCancelable(false);
+			pd.setOnCancelListener(new OnCancelListener() {
+				public void onCancel(DialogInterface dialog) {
+					cancel(true);
 				}
-			}
-			return false;
+			});
+			pd.show();
 		}
 		
 		@Override
-		protected void onPostExecute(Boolean result) {
-			if (result) {
-				Toast.makeText(SubmitListingActivity.this, "Your listing has been posted.", Toast.LENGTH_LONG).show();
-			} else {
-				
+		protected ServerResponse doInBackground(Void... params) {
+			ServerResponse r = new ServerResponse();
+			InputStream input = null;
+			if (!isCancelled()) {
+				input = RESTUtil.post(url, listing);
+				try {
+					r = new ServerResponseParser().parse(JSONUtil.buildObject(input));
+				} catch (JSONException e) {
+					Log.e(DEBUG_TAG, "Parsing JSON error", e);
+				}
+				// TODO: add correct user email
+				sendNotificationEmail("");
 			}
+			return r;
 		}
 		
-		
+		@Override
+		protected void onPostExecute(ServerResponse r) {
+			pd.dismiss();
+			if (r.getResult()) {
+				UiUtil.showText(SubmitListingActivity.this, "Your listing has been posted.");
+			} else {
+				UiUtil.showText(SubmitListingActivity.this, "Something wrong with your listing!");
+			}
+		}
 	}
 	
+	private void sendNotificationEmail(String email) {
+		try {   
+            GMailSender sender = new GMailSender(EmailConstants.USERNAME, EmailConstants.PASSWORD);
+            sender.sendMail("Hello seller!", "Your listing is posted sucessfully!", EmailConstants.USERNAME, "ngocchan.nguyen.61@my.csun.edu");
+        } catch (Exception e) {   
+            Log.e("SendMail", e.getMessage(), e);   
+        } 
+	}
 }

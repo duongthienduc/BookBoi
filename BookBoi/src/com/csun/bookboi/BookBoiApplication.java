@@ -1,6 +1,7 @@
 package com.csun.bookboi;
 
 import com.csun.bookboi.imagehelper.ExtendedImageDownloader;
+import com.csun.bookboi.types.User;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -9,6 +10,8 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import android.app.Application;
 
 public class BookBoiApplication extends Application {
+	public static User currentUser;
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();

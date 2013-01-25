@@ -20,10 +20,21 @@ public class ListingDatabaseHelper {
 	public static final String LISTING_STAUS = "status";
 	
 	public static final String URL_SELECT = "http://www.bookboi.com/chan/get_listing.php";
+	public static final String URL_POST = "http://bookboi.com/chan/post_listing.php";
 	
 	public static Pair<String, List<NameValuePair>> buildSelectQuery(int bookId) {
 		List<NameValuePair> p = new ArrayList<NameValuePair>();
 		p.add(new BasicNameValuePair("book_id", Integer.toString(bookId)));
 		return PairFactory.makePair(URL_SELECT, p);
 	}
+	
+	public static Pair<String, List<NameValuePair>> buildPostQuery(int userId, int bookId, String price, String condition) {
+		List<NameValuePair> p = new ArrayList<NameValuePair>();
+		p.add(new BasicNameValuePair("user_id", Integer.toString(userId)));
+		p.add(new BasicNameValuePair("book_id", Integer.toString(bookId)));
+		p.add(new BasicNameValuePair("price", price));
+		p.add(new BasicNameValuePair("condition", condition));
+		return PairFactory.makePair(URL_POST, p);
+	}
+	
 }

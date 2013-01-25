@@ -24,4 +24,11 @@ public class UserDatabaseHelper {
 		p.add(new BasicNameValuePair("password", password));
 		return PairFactory.makePair(ACTION_SIGNUP, p);
 	}
+	
+	public static Pair<String, List<NameValuePair>> buildLogInQuery(String username, String password) {
+		List<NameValuePair> p = new ArrayList<NameValuePair>();
+		p.add(new BasicNameValuePair("username", username));
+		p.add(new BasicNameValuePair("password", password));
+		return PairFactory.makePair(ACTION_LOGIN, p);
+	}
 }

@@ -24,10 +24,15 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
 import android.app.LauncherActivity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,7 +40,7 @@ import android.widget.Toast;
 import android.widget.AbsListView.OnScrollListener;
 import android.graphics.Bitmap;
 
-public class BuyListingActivity extends Activity {
+public class BuyListingActivity extends BookBoiBaseActivity {
 	private static final String DEBUG_TAG = BuyListingActivity.class.getSimpleName();
 	
 	private ListView listingListView;
@@ -73,7 +78,7 @@ public class BuyListingActivity extends Activity {
 		title.setText(book.getTitle());
 		author.setText(book.getAuthor());
 		course.setText(book.getCourse());
-		ImageLoader.getInstance().displayImage(book.getCoverUrl(), cover);
+		imageLoader.displayImage(book.getCoverUrl(), cover);
 	}
 	
 	private void setUpListView() {
@@ -82,10 +87,6 @@ public class BuyListingActivity extends Activity {
 		listingItemAdapter.restartAppending();
 		listingListView = (ListView) findViewById(R.id.activity_buy_listing_XML_list_view_listing);
 		listingListView.setAdapter(listingItemAdapter);
-		onScrollListingList();
-	}
-	
-	private void onScrollListingList() {
 		isLoading = true;
 		listingListView.setOnScrollListener(new OnScrollListener() {
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -98,6 +99,13 @@ public class BuyListingActivity extends Activity {
 						launchLoadingListingTask();
 					}
 				}
+			}
+		});
+		
+		listingListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				sendEmailToSeller("ngocchan.nguyen.61@my.csun.edu");
 			}
 		});
 	}
@@ -121,7 +129,7 @@ public class BuyListingActivity extends Activity {
 			updateListingList(l[0]);
 		}
 
-
+		@Override
 		protected void onPostExecute(Boolean result) {
 			listingItemAdapter.stopAppending();
 			listingItemAdapter.notifyDataSetChanged();
@@ -171,5 +179,18 @@ public class BuyListingActivity extends Activity {
 		Book book = (Book) bundle.getParcelable("book");
 		task = new LoadListingTask(ListingDatabaseHelper.buildSelectQuery(book.getId()));
 		task.execute();
+	}
+	
+	private void sendEmailToSeller(String email) {
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("message/rfc822");
+		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
+		intent.putExtra(Intent.EXTRA_SUBJECT, "BookBoi Subject");
+		intent.putExtra(Intent.EXTRA_TEXT, "Body");
+		try {
+			startActivity(Intent.createChooser(intent, "Send mail..."));
+		} catch (ActivityNotFoundException e) {
+			// ignore
+		}
 	}
 }

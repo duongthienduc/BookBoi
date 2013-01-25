@@ -4,9 +4,14 @@
 
     <RelativeLayout style="@style/LoginSignUpContainer" >
 
+        <View style="@style/LoginShadowBorderTop" />
+
+        <View style="@style/LoginShadowBorderBottom" />
+
         <RelativeLayout
             android:id="@+id/activity_login_XML_signup_content"
-            style="@style/LoginSignUpContent" >
+            style="@style/LoginSignUpContent"
+            android:layout_alignParentLeft="true" >
 
             <TextView
                 android:id="@+id/activity_login_XML_tagline"
@@ -14,12 +19,14 @@
 
             <Button
                 android:id="@+id/activity_login_XML_button_signup"
-                style="@style/LoginScreenButton.SignUp" />
+                style="@style/LoginScreenButton.SignUp"
+                android:layout_height="80dp"
+                android:layout_alignBottom="@+id/activity_login_XML_tagline"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/activity_login_XML_tagline" />
+
         </RelativeLayout>
 
-        <View style="@style/LoginShadowBorderTop" />
-
-        <View style="@style/LoginShadowBorderBottom" />
     </RelativeLayout>
 
     <LinearLayout style="@style/LoginInputFields" >

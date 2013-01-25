@@ -41,6 +41,7 @@ public class Book implements BookBoiType, Parcelable {
 		b.setPrice(price);
 		b.setEdition(edition);
 		b.setCoverUrl(coverUrl);
+		b.setIsbn(isbn);
 		return b;
 	}
 	
@@ -157,6 +158,7 @@ public class Book implements BookBoiType, Parcelable {
 		b.setSection(section);
 		b.setPrice(price);
 		b.setEdition(edition);
+		b.setIsbn(isbn);
 		b.setCoverUrl(coverUrl);
 		return b;
 	}

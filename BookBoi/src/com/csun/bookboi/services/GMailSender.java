@@ -1,4 +1,4 @@
-package com.csun.bookboi.services.email;
+package com.csun.bookboi.services;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -8,6 +8,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 
 
 import java.io.ByteArrayInputStream;
