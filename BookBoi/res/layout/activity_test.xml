@@ -48,6 +48,18 @@
             style="@style/SubmitButton"
             android:layout_width="match_parent"
             android:text="Console" />
+
+        <Button
+            android:id="@+id/activity_test_xml_button_features"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Features" />
+        
+        <Button
+            android:id="@+id/activity_test_xml_button_departments"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:text="Departments" />
     </LinearLayout>
 
 </ScrollView>

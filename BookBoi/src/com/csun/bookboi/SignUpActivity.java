@@ -13,9 +13,9 @@ import com.csun.bookboi.types.ServerResponse;
 import com.csun.bookboi.utils.JSONUtil;
 import com.csun.bookboi.utils.RESTUtil;
 import com.csun.bookboi.utils.UiUtil;
-import com.csun.bookboi.validation.InputValidator;
-import com.csun.bookboi.validation.PasswordValidator;
-import com.csun.bookboi.validation.UsernameValidator;
+import com.csun.bookboi.validators.InputValidator;
+import com.csun.bookboi.validators.PasswordValidator;
+import com.csun.bookboi.validators.UsernameValidator;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

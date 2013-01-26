@@ -18,13 +18,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 public class BookBoiBaseActivity extends FragmentActivity {
-	protected ImageLoader imageLoader;
+	protected ImageLoader imageLoader = ImageLoader.getInstance();
+	private boolean instanceStateSaved;
 	private Thread.UncaughtExceptionHandler handler;
 	
 	@Override 
 	protected void onCreate(Bundle savedStateInstance) {
 		super.onCreate(savedStateInstance);
-		imageLoader = ImageLoader.getInstance();
 		// setUpDisconnectedNetworkHandler();
 	}
 	
@@ -45,5 +45,13 @@ public class BookBoiBaseActivity extends FragmentActivity {
 	
 	public boolean haveTaskAvailable(AsyncTask<?, ?, ?> task) {
         return ((task == null) || (task != null && task.getStatus() == AsyncTask.Status.FINISHED));
+	}
+	
+	@Override
+	protected void onDestroy() {
+		if (!instanceStateSaved) {
+			imageLoader.stop();
+		}
+		super.onDestroy();
 	}
 }

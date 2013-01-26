@@ -21,7 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/mission_ask_question" />
+        android:src="@drawable/error_circle" />
 
     <Button
         android:id="@+id/dialog_search_not_found_XML_button_ok"

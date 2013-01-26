@@ -20,14 +20,14 @@ public class BookBoiApplication extends Application {
 		// or you can create default configuration by
 		// ImageLoaderConfiguration.createDefault(this);
 		// method.
-		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-				getApplicationContext())
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
 				.threadPriority(Thread.NORM_PRIORITY - 2)
-				.memoryCacheSize(2 * 1024 * 1024) // 2 Mb
+				.memoryCacheSize(5 * 1024 * 1024) // 5 Mb
 				.denyCacheImageMultipleSizesInMemory()
 				.discCacheFileNameGenerator(new Md5FileNameGenerator())
 				.imageDownloader(new ExtendedImageDownloader(getApplicationContext()))
-				.tasksProcessingOrder(QueueProcessingType.LIFO).enableLogging() 
+				.tasksProcessingOrder(QueueProcessingType.LIFO)
+				//.enableLogging() 
 				.build();
 		ImageLoader.getInstance().init(config);
 	}

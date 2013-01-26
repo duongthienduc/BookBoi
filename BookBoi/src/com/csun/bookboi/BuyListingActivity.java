@@ -21,6 +21,7 @@ import com.csun.bookboi.utils.RESTUtil;
 import com.csun.bookboi.utils.UiUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import android.app.Activity;
 import android.app.LauncherActivity;
@@ -61,6 +62,7 @@ public class BuyListingActivity extends BookBoiBaseActivity {
 			.cacheInMemory()
 			.cacheOnDisc()
 			.bitmapConfig(Bitmap.Config.RGB_565)
+			.displayer(new FadeInBitmapDisplayer(400))
 			.build();
 		
 		setUpBookHeaderView();
@@ -78,7 +80,7 @@ public class BuyListingActivity extends BookBoiBaseActivity {
 		title.setText(book.getTitle());
 		author.setText(book.getAuthor());
 		course.setText(book.getCourse());
-		imageLoader.displayImage(book.getCoverUrl(), cover);
+		imageLoader.displayImage(book.getCoverUrl(), cover, options);
 	}
 	
 	private void setUpListView() {

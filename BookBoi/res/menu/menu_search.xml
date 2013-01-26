@@ -3,8 +3,10 @@
 
     <item
         android:id="@+id/listview"
+        android:icon="@drawable/ic_menu_list"
         android:title="list"/>
     <item
         android:id="@+id/gridview"
+        android:icon="@drawable/ic_menu_grid"
         android:title="grid"/>
 </menu>

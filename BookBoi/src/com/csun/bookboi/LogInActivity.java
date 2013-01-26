@@ -152,9 +152,10 @@ public class LogInActivity extends BookBoiBaseActivity {
 					try {
 						int id = result.getInt("id");
 						if (id != 0) {
+							Log.v(DEBUG_TAG, "What the fuck?");
+							SingletonUser.setActiveUser(id, activeUsername, activePassword);
 							LogInActivity.this.startActivity(new Intent(LogInActivity.this.getApplicationContext(), MainMenuActivity.class));
 							LogInActivity.this.finish();
-							SingletonUser.setActiveUser(id, activeUsername, activePassword);
 						}
 					} catch (JSONException e) {
 						Log.e(DEBUG_TAG, "Exception has occured while parsing JSON", e);

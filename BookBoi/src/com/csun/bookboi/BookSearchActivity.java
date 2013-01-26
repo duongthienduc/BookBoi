@@ -24,6 +24,7 @@ import com.csun.bookboi.utils.JSONUtil;
 import com.csun.bookboi.utils.Pair;
 import com.csun.bookboi.utils.RESTUtil;
 import com.csun.bookboi.utils.UiUtil;
+import com.nostra13.universalimageloader.core.assist.PauseOnScrollListener;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -81,6 +82,7 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_book);
 		books = new ArrayList<Book>();
+		bookItemAdapter = new BookItemAdapter(this, books, BookItemAdapter.ViewType.LIST_VIEW);
 		setUpViews();
 	}
 	
@@ -138,7 +140,6 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	 * both onScroll & onItemClick event
 	 */
 	private void setUpListView() {
-		bookItemAdapter = new BookItemAdapter(this, books, BookItemAdapter.ViewType.LIST_VIEW);
 		bookListView = (ListView) findViewById(R.id.activity_buy_XML_list_view_book);
 		bookListView.setAdapter(bookItemAdapter);
 		isLoading = true;
@@ -166,6 +167,7 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 				launchActivity(books.get(position).makeCopy());
 			}
 		});
+		bookListView.setOnScrollListener(new PauseOnScrollListener(false, true));
 	}
 	
 	/**
@@ -173,7 +175,6 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	 * both onScroll & onItemClick event
 	 */
 	private void setUpGridView() {
-		bookItemAdapter = new BookItemAdapter(this, books, BookItemAdapter.ViewType.GRID_VIEW);
 		bookGridView = (GridView) findViewById(R.id.activity_buy_XML_grid_view_book);
 		bookGridView.setAdapter(bookItemAdapter);
 	}
@@ -424,5 +425,13 @@ public abstract class BookSearchActivity extends BookBoiBaseActivity {
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	}
+	
+	@Override 
+	protected void onDestroy() {
+		Log.v(DEBUG_TAG, "Clear cached memory");
+		imageLoader.clearDiscCache();
+		imageLoader.clearMemoryCache();
+		super.onDestroy();
 	}
 }

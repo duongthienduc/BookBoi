@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/aluminum5"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/activity_user_settings_XML_checkbox_option_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notify through email only." />
+
+    <CheckBox
+        android:id="@+id/activity_user_settings_XML_checkbox_option_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Option 2" />
+
+    <CheckBox
+        android:id="@+id/activity_user_settings_XML_checkbox_option_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Option 3" />
+
+    <Button
+        android:id="@+id/activity_user_settings_XML_button_apply"
+        style="@style/SubmitButton"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="150dp"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Apply Changes" />
+    
+</LinearLayout>

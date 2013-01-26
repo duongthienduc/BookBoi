@@ -36,21 +36,21 @@ public class TestActivity extends Activity {
 			}
 		});
 		
-		findViewById(R.id.activity_test_xml_button_bookstore).setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), BookStoreActivity.class));
-			}
-		});
-		
-		findViewById(R.id.activity_test_xml_button_email).setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), EmailActivity.class));
-			}
-		});
-		
 		findViewById(R.id.activity_test_xml_button_console).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getApplicationContext(), ConsoleTestingActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_features).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), FeaturesActivity.class));
+			}
+		});
+		
+		findViewById(R.id.activity_test_xml_button_departments).setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), DepartmentActivity.class));
 			}
 		});
 		
